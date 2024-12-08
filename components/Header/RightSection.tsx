@@ -1,20 +1,17 @@
-"use client";
 import React from "react";
-import {
-  MenuItem,
-  Select,
-  Typography,
-  SelectChangeEvent,
-  Box,
-} from "@mui/material";
+import { MenuItem, Typography, SelectChangeEvent, Box } from "@mui/material";
 import InspirationImg from "@/public/HeaderImages/inspirationImg.svg";
 import FavImg from "@/public/HeaderImages/favImg.svg";
 import BasketImg from "@/public/HeaderImages/basket.svg";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 import {
   AvatarCircle,
   BasketContainer,
   RightContainer,
+  selectMenuProps,
   StyledContainer,
+  StyledSelect,
   Text,
 } from "./HeaderStyles";
 import Image from "next/image";
@@ -69,19 +66,18 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
       </BasketContainer>
 
       {/* language */}
-      <StyledContainer>
+      <StyledContainer sx={{ gap: 2 }}>
         <AvatarCircle />
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={lang}
-          onChange={handleLanguageChange}
-          autoWidth
-          label="Age"
+        <StyledSelect
+          value={lang || "fr"}
+          onChange={() => handleLanguageChange}
+          variant="standard"
+          IconComponent={KeyboardArrowDownIcon}
+          MenuProps={selectMenuProps}
         >
           <MenuItem value={"fr"}>FR</MenuItem>
           <MenuItem value={"en"}>EN</MenuItem>
-        </Select>
+        </StyledSelect>
       </StyledContainer>
     </RightContainer>
   );

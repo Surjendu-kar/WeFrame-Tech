@@ -9,7 +9,7 @@ function Home() {
       <Header />
 
       {/* main container */}
-      <Stack sx={{ flexGrow: 1, maxWidth: 1600 }}>Body</Stack>
+      <Stack sx={{ flexGrow: 1, maxWidth: 1600 }}></Stack>
 
       {/* footer */}
       <Footer />

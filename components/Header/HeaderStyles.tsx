@@ -1,4 +1,4 @@
-import { styled, Box, Typography } from "@mui/material";
+import { styled, Box, Typography, Select } from "@mui/material";
 
 export const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -46,3 +46,57 @@ export const AvatarCircle = styled(Box)(({ theme }) => ({
   borderRadius: theme.spacing(3),
   [theme.breakpoints.down("sm")]: {},
 }));
+
+export const StyledSelect = styled(Select)(({ theme }) => ({
+  "& .MuiSelect-select": {
+    paddingRight: "25px !important",
+    fontSize: theme.spacing(1.4),
+    fontWeight: 500,
+    color: theme.palette.grey[800],
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
+
+    "&:focus": {
+      backgroundColor: "transparent",
+    },
+  },
+
+  "&::before": {
+    border: "none",
+  },
+
+  "&:hover:not(.Mui-disabled, .Mui-error)::before": {
+    border: "none",
+  },
+
+  "&::after": {
+    border: "none",
+  },
+
+  "& .MuiSelect-icon": {
+    color: theme.palette.grey[800],
+    fontSize: "20px",
+  },
+  "& .MuiSelect-selectMenu": {
+    paddingLeft: theme.spacing(1),
+  },
+}));
+
+export const selectMenuProps = {
+  PaperProps: {
+    sx: {
+      mt: 1,
+      borderRadius: "8px",
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+      "& .MuiMenuItem-root": {
+        fontSize: "14px",
+        fontWeight: 500,
+        padding: "8px 16px",
+        "&:hover": {
+          backgroundColor: "#f5f5f5",
+        },
+      },
+    },
+  },
+};
