@@ -4,7 +4,7 @@ import Image from "next/image";
 export const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
-  padding: theme.spacing(2),
+  padding: theme.spacing(2, 3, 3, 3),
   [theme.breakpoints.down("sm")]: {},
 }));
 
@@ -116,13 +116,12 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
 export const selectMenuProps = {
   PaperProps: {
     sx: {
-      mt: 1,
       borderRadius: "8px",
       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
       "& .MuiMenuItem-root": {
-        fontSize: "14px",
+        fontSize: "12px",
         fontWeight: 500,
-        padding: "8px 16px",
+        padding: "8px 20px",
         "&:hover": {
           backgroundColor: "#f5f5f5",
         },
@@ -130,3 +129,37 @@ export const selectMenuProps = {
     },
   },
 };
+
+//nav items
+
+export const NavContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  gap: theme.spacing(3.1),
+  borderBottom: "1px solid #EAEDEE",
+}));
+
+export const NavItem = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== "isSelected",
+})<{ isSelected?: boolean }>(({ theme, isSelected }) => ({
+  fontSize: theme.spacing(1.4),
+  color: isSelected ? theme.palette.primary.main : theme.palette.grey[500],
+  cursor: "pointer",
+  textTransform: "uppercase",
+  transition: "all 0.2s ease",
+  position: "relative",
+  paddingBottom: theme.spacing(1.5),
+  "&:hover": {
+    color: theme.palette.primary.main,
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    height: "2px",
+    backgroundColor: isSelected ? theme.palette.primary.main : "transparent",
+    transition: "background-color 0.2s ease",
+  },
+}));

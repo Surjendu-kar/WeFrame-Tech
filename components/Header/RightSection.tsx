@@ -22,8 +22,8 @@ interface RightSectionProps {
 }
 
 const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
-  const handleLanguageChange = (event: SelectChangeEvent<string>) => {
-    setLang(event.target.value);
+  const handleLanguageChange = (event: SelectChangeEvent<unknown>) => {
+    setLang(event.target.value as string);
   };
 
   return (
@@ -70,7 +70,7 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
         <AvatarCircle />
         <StyledSelect
           value={lang || "fr"}
-          onChange={() => handleLanguageChange}
+          onChange={handleLanguageChange}
           variant="standard"
           IconComponent={KeyboardArrowDownIcon}
           MenuProps={selectMenuProps}
