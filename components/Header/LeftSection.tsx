@@ -4,14 +4,14 @@ import Image from "next/image";
 import { Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Logo from "@/public/weFramelogo.svg";
-import { StyledContainer } from "./HeaderStyles";
+import { LeftContainer } from "./HeaderStyles";
 
 const LeftSection: React.FC = () => {
   return (
-    <StyledContainer>
+    <LeftContainer>
       <Image src={Logo} alt="WeFramelogo" />
       <Input endAdornment={<SearchIcon />} placeholder="Search" />
-    </StyledContainer>
+    </LeftContainer>
   );
 };
 

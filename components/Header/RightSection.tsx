@@ -1,12 +1,23 @@
-// components/RightSection.tsx
 "use client";
 import React from "react";
-import { MenuItem, Select, Typography, SelectChangeEvent } from "@mui/material";
-import Image from "next/image";
+import {
+  MenuItem,
+  Select,
+  Typography,
+  SelectChangeEvent,
+  Box,
+} from "@mui/material";
 import InspirationImg from "@/public/HeaderImages/inspirationImg.svg";
 import FavImg from "@/public/HeaderImages/favImg.svg";
 import BasketImg from "@/public/HeaderImages/basket.svg";
-import { AvatarCircle, BasketContainer, StyledContainer } from "./HeaderStyles";
+import {
+  AvatarCircle,
+  BasketContainer,
+  RightContainer,
+  StyledContainer,
+  Text,
+} from "./HeaderStyles";
+import Image from "next/image";
 
 interface RightSectionProps {
   lang: string;
@@ -19,24 +30,42 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
   };
 
   return (
-    <StyledContainer>
+    <RightContainer>
       {/* inspiration */}
       <StyledContainer>
         <Image src={InspirationImg} alt="inspiration img" />
-        <Typography>inspiration</Typography>
+        <Text>inspiration</Text>
       </StyledContainer>
 
       {/* my fav */}
       <StyledContainer>
         <Image src={FavImg} alt="fav img" />
-        <Typography>Mes favoris</Typography>
-        <Typography>24</Typography>
+        <Text>Mes favoris</Text>
+        <Box
+          sx={{
+            background: "#CAD2D566",
+            width: "28px",
+            height: "18px",
+            borderRadius: "30px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "10px",
+            }}
+          >
+            24
+          </Typography>
+        </Box>
       </StyledContainer>
 
       {/* basket */}
       <BasketContainer>
         <Image src={BasketImg} alt="basket img" />
-        <Typography>Panier</Typography>
+        <Text sx={{ color: "#FFFFFF" }}>Panier</Text>
       </BasketContainer>
 
       {/* language */}
@@ -54,7 +83,7 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
           <MenuItem value={"en"}>EN</MenuItem>
         </Select>
       </StyledContainer>
-    </StyledContainer>
+    </RightContainer>
   );
 };
 

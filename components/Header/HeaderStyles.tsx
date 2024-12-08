@@ -1,4 +1,4 @@
-import { styled, Box } from "@mui/material";
+import { styled, Box, Typography } from "@mui/material";
 
 export const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -6,10 +6,26 @@ export const MainContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
 }));
 
-export const StyledContainer = styled(Box)(({ theme }) => ({
+export const LeftContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
+  gap: theme.spacing(2),
+  [theme.breakpoints.down("sm")]: {},
+}));
+
+export const RightContainer = styled(LeftContainer)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {},
+}));
+
+export const StyledContainer = styled(LeftContainer)(({ theme }) => ({
   gap: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {},
+}));
+
+export const Text = styled(Typography)(({ theme }) => ({
+  fontSize: theme.spacing(1.4),
+  color: theme.palette.grey[700],
+  textTransform: "capitalize",
   [theme.breakpoints.down("sm")]: {},
 }));
 
