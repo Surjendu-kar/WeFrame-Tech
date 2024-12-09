@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, styled, TextField } from "@mui/material";
 import Image from "next/image";
 import Frame from "@/public/ServiceFeatureImg/Frame.svg";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const RegisterContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -38,6 +39,17 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
     borderRadius: "8px",
   },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#F5E1EB",
+    },
+    "&:hover fieldset": {
+      borderColor: "#F5E1EB",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#F5E1EB",
+    },
+  },
 }));
 
 const RegisterButton = styled("button")(({ theme }) => ({
@@ -47,8 +59,20 @@ const RegisterButton = styled("button")(({ theme }) => ({
   borderRadius: "8px",
   textTransform: "uppercase",
   border: "none",
+  display: "flex",
+  alignItems: "center",
+  gap: theme.spacing(0.5),
+  cursor: "pointer",
+  transition: "all 0.3s ease",
+
+  "& .MuiSvgIcon-root": {
+    transition: "transform 0.3s ease",
+  },
+
   "&:hover": {
-    backgroundColor: "#4bc0cb",
+    "& .MuiSvgIcon-root": {
+      transform: "translateX(5px)",
+    },
   },
 }));
 
@@ -75,7 +99,10 @@ const RegisterSection = () => {
         </Description>
         <InputContainer>
           <StyledTextField placeholder="john@doe.com" variant="outlined" />
-          <RegisterButton>S&apos;INSCRIRE</RegisterButton>
+          <RegisterButton>
+            S&apos;INSCRIRE
+            <ArrowForwardIcon sx={{ fontSize: "18px" }} />
+          </RegisterButton>
         </InputContainer>
       </ContentStack>
     </RegisterContainer>

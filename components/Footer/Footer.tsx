@@ -5,6 +5,14 @@ import TwitterImg from "@/public/Footer/twitter.png";
 import InstaImg from "@/public/Footer/instagram.png";
 import LinkedinImg from "@/public/Footer/linkedin-in.png";
 
+const MainContainer = styled(Typography)(({ theme }) => ({
+  display: "flex",
+  marginTop: "auto",
+  justifyContent: "space-between",
+  padding: theme.spacing(4, 6, 4, 3),
+  borderTop: "1px solid #EAEDEE",
+}));
+
 const Title = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.8),
   color: theme.palette.grey[600],
@@ -17,6 +25,8 @@ const SubTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const SocialBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
   padding: theme.spacing(1),
   border: "0.5px solid #39393959",
   borderRadius: "6px",
@@ -24,15 +34,7 @@ const SocialBox = styled(Box)(({ theme }) => ({
 
 function Footer() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        mt: "auto",
-        justifyContent: "space-between",
-        padding: "40px 20px",
-        borderTop: "0.1px solid #39393959",
-      }}
-    >
+    <MainContainer>
       <Box sx={{ display: "flex", gap: 5 }}>
         <Image src={Logo} alt="logo" />
 
@@ -93,7 +95,7 @@ function Footer() {
           </SocialBox>
         </Box>
       </Stack>
-    </Box>
+    </MainContainer>
   );
 }
 
