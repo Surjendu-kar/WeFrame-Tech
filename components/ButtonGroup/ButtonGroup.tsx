@@ -53,7 +53,7 @@ const ButtonGroup = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", gap: 2 }}>
+    <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
       <CounterBox>
         <CounterButton onClick={handleDecrement}>−</CounterButton>
         <CounterText>{count}</CounterText>

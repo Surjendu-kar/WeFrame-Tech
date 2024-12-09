@@ -132,10 +132,9 @@ export const selectMenuProps = {
 
 //nav items
 
-export const NavContainer = styled(Box)(({ theme }) => ({
+export const NavContainer = styled(Box)(() => ({
   display: "flex",
-  justifyContent: "center",
-  gap: theme.spacing(3.1),
+  justifyContent: "space-around",
   borderBottom: "1px solid #EAEDEE",
 }));
 

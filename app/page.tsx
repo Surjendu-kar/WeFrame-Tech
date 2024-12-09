@@ -11,8 +11,9 @@ function Home() {
       <Header />
 
       {/* main container */}
-      <ProductDetails />
-
+      <Stack sx={{ alignItems: "center" }}>
+        <ProductDetails />
+      </Stack>
       {/* footer */}
       <Footer />
     </Stack>
