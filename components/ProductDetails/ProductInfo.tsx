@@ -20,6 +20,7 @@ const PriceText = styled(Typography)(({ theme }) => ({
 const PriceUnit = styled(PriceText)(({ theme }) => ({
   fontSize: theme.spacing(1.4),
   color: theme.palette.grey[200],
+  letterSpacing: "0.75px",
 }));
 
 const SpecificationBox = styled(Box)(({ theme }) => ({
@@ -42,7 +43,7 @@ const MeasurementContainer = styled(Box)(({ theme }) => ({
 }));
 
 const SpecText = styled(Typography)(({ theme }) => ({
-  fontSize: theme.spacing(1.6),
+  fontSize: theme.spacing(1.8),
   color: theme.palette.grey[900],
 }));
 

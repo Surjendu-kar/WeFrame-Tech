@@ -27,7 +27,7 @@ function SelectedNav() {
       <Link
         href="/"
         style={{
-          color: "#666",
+          color: "#393939",
           textDecoration: "none",
         }}
       >
