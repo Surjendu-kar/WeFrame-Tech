@@ -4,6 +4,7 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import ProductDetails from "@/components/ProductDetails/ProductDetails";
 import SimilarProducts from "@/components/SimilarProducts/SimilarProducts";
+import InterestProduct from "@/components/InterestProduct/InterestProduct";
 
 function Home() {
   return (
@@ -17,6 +18,9 @@ function Home() {
         <ProductDetails />
         {/* similar products */}
         <SimilarProducts />
+
+        {/* interest products */}
+        <InterestProduct/>
       </Stack>
       {/* footer */}
       <Footer />

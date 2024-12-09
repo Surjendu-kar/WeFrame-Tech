@@ -1,18 +1,18 @@
 import TableIcon from "@/public/Product/SimilarProducts/tableImg.webp";
 import { Box, Stack, styled, Typography } from "@mui/material";
-import ProductCard from "./ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 import { useRef } from "react";
 
 const MainContainer = styled(Stack)(({ theme }) => ({
   marginTop: theme.spacing(10),
   gap: theme.spacing(2),
   background: "#FBF9F899",
-  maxWidth: theme.spacing(170),
+  maxWidth: theme.spacing(160),
 }));
 const Container = styled(Box)(({ theme }) => ({
   position: "relative",
   // maxWidth: theme.spacing(165),
-  paddingLeft: theme.spacing(4),
+  paddingLeft: theme.spacing(2),
 }));
 
 const Heading = styled(Typography)(({ theme }) => ({
@@ -83,12 +83,11 @@ function SimilarProducts() {
 
   return (
     <MainContainer>
-      {/* <Box> */}
       <Box
         display={"flex"}
         justifyContent={"space-between"}
         alignItems={"center"}
-        sx={{ padding: "0px 40px" }}
+        sx={{ padding: "0px 20px" }}
       >
         <Heading>Articles similaires</Heading>
         <Title>Voir toute la collection</Title>
@@ -114,7 +113,6 @@ function SimilarProducts() {
           </svg>
         </ScrollButton>
       </Container>
-      {/* </Box> */}
     </MainContainer>
   );
 }
