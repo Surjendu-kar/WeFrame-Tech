@@ -1,6 +1,8 @@
+"use client";
+import { Stack } from "@mui/material";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import { Stack } from "@mui/material";
+import ProductDetails from "@/components/ProductDetails/ProductDetails";
 
 function Home() {
   return (
@@ -9,7 +11,7 @@ function Home() {
       <Header />
 
       {/* main container */}
-      <Stack sx={{ flexGrow: 1, maxWidth: 1600 }}></Stack>
+      <ProductDetails />
 
       {/* footer */}
       <Footer />
