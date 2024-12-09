@@ -69,16 +69,34 @@ function SimilarProducts() {
 
   return (
     <Stack
-      mt={4}
+      mt={5}
       gap={2}
       sx={{
         background: "#FBF9F899",
         maxWidth: "1600px",
+        padding: "20px 0px 20px 40px",
       }}
     >
-      <Title>Articles similaires</Title>
+      <Box
+        display={"flex"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Title>Articles similaires</Title>
+        <Typography
+          sx={{
+            fontSize: "16px",
+            fontFamily: "Cabinet Grotesk",
+            color: "#393939",
+            borderBottom: "1px solid #393939",
+            textTransform: "uppercase",
+          }}
+        >
+          Voir toute la collection
+        </Typography>
+      </Box>
       <Container>
-        <ScrollButton sx={{ left: "-15px" }} onClick={() => scroll("left")}>
+        <ScrollButton sx={{ left: "-10px" }} onClick={() => scroll("left")}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" />
           </svg>
@@ -89,7 +107,7 @@ function SimilarProducts() {
           ))}
         </ScrollContainer>
         <ScrollButton
-          sx={{ right: "-40px", left: "auto", transform: "translate(0, -50%)" }}
+          sx={{ right: "0px", left: "auto", transform: "translate(0, -50%)" }}
           onClick={() => scroll("right")}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
