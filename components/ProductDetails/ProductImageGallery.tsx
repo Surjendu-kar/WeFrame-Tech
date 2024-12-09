@@ -1,6 +1,6 @@
 import { Box, Stack, styled } from "@mui/material";
 import Image from "next/image";
-import PrinterImg from "@/public/BodyImages/printer.png";
+import PrinterImg from "@/public/Product/ProductDetails/printer.png";
 
 const ImageContainer = styled(Stack)(({ theme }) => ({
   gap: theme.spacing(2),

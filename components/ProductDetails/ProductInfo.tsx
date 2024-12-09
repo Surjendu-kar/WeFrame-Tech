@@ -1,7 +1,8 @@
-import { Box, Stack, styled, Typography } from "@mui/material";
+import HeartIcon from "@/components/HeartIcon/HeartIcon";
+import { Box, ButtonGroup, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import HeartIcon from "../HeartIcon/HeartIcon";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import ScaleImg from "@/public/Product/ProductDetails/scaleImg.svg";
+import CircleImg from "@/public/Product/ProductDetails/circleImg.svg";
 
 const ProductTitle = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(3),
@@ -80,24 +81,14 @@ function ProductInfo() {
         <SpecificationBox>
           <Box sx={{ display: "flex", gap: 2, padding: "20px 0" }}>
             <MeasurementBox>
-              <Image
-                src="/BodyImages/scaleImg.svg"
-                alt="Scale"
-                width={24}
-                height={24}
-              />
+              <Image src={ScaleImg} alt="Scale" width={24} height={24} />
               <MeasurementContainer>
                 <SpecText>20</SpecText>
                 <UnitText>cm</UnitText>
               </MeasurementContainer>
             </MeasurementBox>
             <MeasurementBox>
-              <Image
-                src="/BodyImages/circleImg.svg"
-                alt="Circle"
-                width={24}
-                height={24}
-              />
+              <Image src={CircleImg} alt="Circle" width={24} height={24} />
               <MeasurementContainer>
                 <SpecText>50</SpecText>
                 <UnitText>cm</UnitText>

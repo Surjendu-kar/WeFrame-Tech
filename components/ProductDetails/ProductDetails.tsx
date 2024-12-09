@@ -1,9 +1,10 @@
 import { Box, Stack, styled } from "@mui/material";
 import SelectedNav from "./SelectedNav";
 import ProductImageGallery from "./ProductImageGallery";
-import ProductInfo from "./ProductInfo";
 import ProductDescription from "./ProductDescription";
 import DeliveryQuestions from "./DeliveryQuestions";
+import ProductInfo from "./ProductInfo";
+import SimilarProducts from "../SimilarProducts/SimilarProducts";
 
 const ProductContainer = styled(Stack)(({ theme }) => ({
   flexGrow: 1,
@@ -24,11 +25,19 @@ function ProductDetails() {
           <ProductInfo />
         </Box>
         {/* Product description */}
-        <Box sx={{ display: "flex" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <ProductDescription />
           <DeliveryQuestions />
         </Box>
       </Stack>
+
+      <SimilarProducts />
     </ProductContainer>
   );
 }
