@@ -12,10 +12,10 @@ function Home() {
       <Header />
 
       {/* main container */}
-      <Stack
-      sx={{ alignItems: "center" }}
-      >
+      <Stack sx={{ alignItems: "center" }}>
+        {/* Select product */}
         <ProductDetails />
+        {/* similar products */}
         <SimilarProducts />
       </Stack>
       {/* footer */}

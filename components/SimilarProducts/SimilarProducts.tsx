@@ -1,14 +1,33 @@
-"use client";
 import TableIcon from "@/public/Product/SimilarProducts/tableImg.webp";
 import { Box, Stack, styled, Typography } from "@mui/material";
 import ProductCard from "./ProductCard";
 import { useRef } from "react";
 
-const Title = styled(Typography)(({ theme }) => ({
+const MainContainer = styled(Stack)(({ theme }) => ({
+  marginTop: theme.spacing(10),
+  gap: theme.spacing(2),
+  background: "#FBF9F899",
+  maxWidth: theme.spacing(170),
+}));
+const Container = styled(Box)(({ theme }) => ({
+  position: "relative",
+  // maxWidth: theme.spacing(165),
+  paddingLeft: theme.spacing(4),
+}));
+
+const Heading = styled(Typography)(({ theme }) => ({
   fontFamily: "Cabinet Grotesk",
   fontSize: theme.spacing(3.5),
   textTransform: "capitalize",
   color: theme.palette.grey[600],
+}));
+
+const Title = styled(Typography)(({ theme }) => ({
+  fontSize: theme.spacing(1.6),
+  fontFamily: "Cabinet Grotesk",
+  color: theme.palette.grey[600],
+  borderBottom: `1px solid ${theme.palette.grey[600]}`,
+  textTransform: "uppercase",
 }));
 
 const ScrollButton = styled(Box)(({ theme }) => ({
@@ -37,11 +56,6 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const Container = styled(Box)(() => ({
-  position: "relative",
-  width: "100%",
-}));
-
 interface Product {
   image: string;
   title: string;
@@ -68,35 +82,20 @@ function SimilarProducts() {
   };
 
   return (
-    <Stack
-      mt={5}
-      gap={2}
-      sx={{
-        background: "#FBF9F899",
-        maxWidth: "1600px",
-        padding: "20px 0px 20px 40px",
-      }}
-    >
+    <MainContainer>
+      {/* <Box> */}
       <Box
         display={"flex"}
         justifyContent={"space-between"}
         alignItems={"center"}
+        sx={{ padding: "0px 40px" }}
       >
-        <Title>Articles similaires</Title>
-        <Typography
-          sx={{
-            fontSize: "16px",
-            fontFamily: "Cabinet Grotesk",
-            color: "#393939",
-            borderBottom: "1px solid #393939",
-            textTransform: "uppercase",
-          }}
-        >
-          Voir toute la collection
-        </Typography>
+        <Heading>Articles similaires</Heading>
+        <Title>Voir toute la collection</Title>
       </Box>
+
       <Container>
-        <ScrollButton sx={{ left: "-10px" }} onClick={() => scroll("left")}>
+        <ScrollButton sx={{ left: "30px" }} onClick={() => scroll("left")}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" />
           </svg>
@@ -107,7 +106,7 @@ function SimilarProducts() {
           ))}
         </ScrollContainer>
         <ScrollButton
-          sx={{ right: "0px", left: "auto", transform: "translate(0, -50%)" }}
+          sx={{ right: "10px", left: "auto", transform: "translate(0, -50%)" }}
           onClick={() => scroll("right")}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -115,7 +114,8 @@ function SimilarProducts() {
           </svg>
         </ScrollButton>
       </Container>
-    </Stack>
+      {/* </Box> */}
+    </MainContainer>
   );
 }
 

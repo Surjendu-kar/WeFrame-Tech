@@ -23,8 +23,8 @@ const HeartIcon = () => {
           transition: all 0.2s ease;
         }
         svg:hover path:not([fill='#EE4197']) {
-          fill: #7C5368;
-          stroke: #7C5368;
+          fill: #615f5c;
+          stroke: #615f5c;
         }
       `}</style>
     </div>

@@ -8,7 +8,7 @@ import ProductInfo from "./ProductInfo";
 const ProductContainer = styled(Stack)(({ theme }) => ({
   flexGrow: 1,
   maxWidth: theme.spacing(170),
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(0, 3),
 }));
 
 function ProductDetails() {
@@ -28,15 +28,12 @@ function ProductDetails() {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
           <ProductDescription />
           <DeliveryQuestions />
         </Box>
       </Stack>
-
-      {/* similar products */}
     </ProductContainer>
   );
 }
