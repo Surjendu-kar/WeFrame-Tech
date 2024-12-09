@@ -4,12 +4,10 @@ import ProductImageGallery from "./ProductImageGallery";
 import ProductDescription from "./ProductDescription";
 import DeliveryQuestions from "./DeliveryQuestions";
 import ProductInfo from "./ProductInfo";
-import SimilarProducts from "../SimilarProducts/SimilarProducts";
 
 const ProductContainer = styled(Stack)(({ theme }) => ({
   flexGrow: 1,
   maxWidth: theme.spacing(160),
-  padding: theme.spacing(0, 2),
 }));
 
 function ProductDetails() {
@@ -38,7 +36,6 @@ function ProductDetails() {
       </Stack>
 
       {/* similar products */}
-      <SimilarProducts />
     </ProductContainer>
   );
 }

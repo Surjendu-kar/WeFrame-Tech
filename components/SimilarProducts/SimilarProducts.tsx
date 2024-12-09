@@ -68,10 +68,17 @@ function SimilarProducts() {
   };
 
   return (
-    <Stack mt={4} gap={2}>
+    <Stack
+      mt={4}
+      gap={2}
+      sx={{
+        background: "#FBF9F899",
+        maxWidth: "1600px",
+      }}
+    >
       <Title>Articles similaires</Title>
       <Container>
-        <ScrollButton sx={{ left: "-30px" }} onClick={() => scroll("left")}>
+        <ScrollButton sx={{ left: "-15px" }} onClick={() => scroll("left")}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" />
           </svg>
@@ -82,7 +89,7 @@ function SimilarProducts() {
           ))}
         </ScrollContainer>
         <ScrollButton
-          sx={{ right: "-50px", left: "auto", transform: "translate(0, -50%)" }}
+          sx={{ right: "-40px", left: "auto", transform: "translate(0, -50%)" }}
           onClick={() => scroll("right")}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
