@@ -101,6 +101,7 @@ const ProductCard = ({
               width: "224px",
               height: "224px",
             }}
+            loading="lazy"
           />
         </ImageContainer>
       </ImageBox>

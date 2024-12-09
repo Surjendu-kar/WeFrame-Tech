@@ -1,8 +1,9 @@
 import HeartIcon from "@/components/HeartIcon/HeartIcon";
-import { Box, ButtonGroup, Stack, styled, Typography } from "@mui/material";
+import { Box, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import ScaleImg from "@/public/Product/ProductDetails/scaleImg.svg";
 import CircleImg from "@/public/Product/ProductDetails/circleImg.svg";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 
 const ProductTitle = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(3),

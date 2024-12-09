@@ -37,6 +37,7 @@ function ProductDetails() {
         </Box>
       </Stack>
 
+      {/* similar products */}
       <SimilarProducts />
     </ProductContainer>
   );

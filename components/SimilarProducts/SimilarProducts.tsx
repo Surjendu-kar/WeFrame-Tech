@@ -21,20 +21,25 @@ const ScrollButton = styled(Box)(({ theme }) => ({
   cursor: "pointer",
   position: "absolute",
   top: "50%",
-  transform: "translateY(-50%)",
+  transform: "translate(-50%, -50%)",
   zIndex: 1,
   borderRadius: "4px",
 }));
 
-const ScrollContainer = styled(Box)(() => ({
+const ScrollContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  gap: "16px",
+  gap: theme.spacing(2),
   overflowX: "scroll",
   scrollbarWidth: "none",
   "&::-webkit-scrollbar": { display: "none" },
   "& > *": {
     flexShrink: 0,
   },
+}));
+
+const Container = styled(Box)(() => ({
+  position: "relative",
+  width: "100%",
 }));
 
 interface Product {
@@ -65,8 +70,8 @@ function SimilarProducts() {
   return (
     <Stack mt={4} gap={2}>
       <Title>Articles similaires</Title>
-      <Box sx={{ position: "relative" }}>
-        <ScrollButton sx={{ left: 0 }} onClick={() => scroll("left")}>
+      <Container>
+        <ScrollButton sx={{ left: "-30px" }} onClick={() => scroll("left")}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" />
           </svg>
@@ -76,12 +81,15 @@ function SimilarProducts() {
             <ProductCard key={index} {...product} />
           ))}
         </ScrollContainer>
-        <ScrollButton sx={{ right: 0 }} onClick={() => scroll("right")}>
+        <ScrollButton
+          sx={{ right: "-50px", left: "auto", transform: "translate(0, -50%)" }}
+          onClick={() => scroll("right")}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" />
           </svg>
         </ScrollButton>
-      </Box>
+      </Container>
     </Stack>
   );
 }
