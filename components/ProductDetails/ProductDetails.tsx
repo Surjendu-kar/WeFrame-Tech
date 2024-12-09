@@ -7,7 +7,8 @@ import ProductInfo from "./ProductInfo";
 
 const ProductContainer = styled(Stack)(({ theme }) => ({
   flexGrow: 1,
-  maxWidth: theme.spacing(160),
+  maxWidth: theme.spacing(170),
+  padding: theme.spacing(0, 2),
 }));
 
 function ProductDetails() {

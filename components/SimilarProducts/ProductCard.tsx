@@ -65,11 +65,18 @@ const Price = styled(Typography)(({ theme }) => ({
 const PriceBox = styled(Box)(() => ({
   display: "flex",
   justifyContent: "space-between",
+  alignItems: "center",
 }));
 
 const ReferenceText = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.4),
   color: "#9C9C9C",
+  letterSpacing: "1px",
+
+  span: {
+    fontSize: theme.spacing(1),
+    color: "#9C9C9C",
+  },
 }));
 
 const PiecesLabel = styled(Typography)(({ theme }) => ({
@@ -116,7 +123,9 @@ const ProductCard = ({
         </PriceBox>
 
         <PriceBox>
-          <ReferenceText>0,35€/Pièce · RÉF : VABGN5</ReferenceText>
+          <ReferenceText>
+            0,35€/Pièce <span>· RÉF : VABGN5</span>
+          </ReferenceText>
           <PiecesLabel>20 pièces</PiecesLabel>
         </PriceBox>
       </InfoContainer>
