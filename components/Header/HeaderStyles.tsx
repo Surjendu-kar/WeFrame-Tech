@@ -66,6 +66,7 @@ export const BasketContainer = styled(Box)(({ theme }) => ({
   gap: theme.spacing(0.8),
   padding: theme.spacing(1, 1.6),
   borderRadius: theme.spacing(0.6),
+  cursor: "pointer",
   [theme.breakpoints.down("sm")]: {},
 }));
 

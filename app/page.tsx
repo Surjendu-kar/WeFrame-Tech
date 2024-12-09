@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import ProductDetails from "@/components/ProductDetails/ProductDetails";
 import SimilarProducts from "@/components/SimilarProducts/SimilarProducts";
 import InterestProduct from "@/components/InterestProduct/InterestProduct";
+import ServiceFeatures from "@/components/ServiceFeatures/ServiceFeatures";
 
 function Home() {
   return (
@@ -20,7 +21,10 @@ function Home() {
         <SimilarProducts />
 
         {/* interest products */}
-        <InterestProduct/>
+        <InterestProduct />
+
+        {/* service & feature */}
+        <ServiceFeatures />
       </Stack>
       {/* footer */}
       <Footer />
