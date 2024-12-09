@@ -1,4 +1,4 @@
-import TableIcon from "@/public/Product/SimilarProducts/tableImg.webp";
+import TableIcon from "@/public/SimilarProducts/tableImg.webp";
 import { Box, Stack, styled, Typography } from "@mui/material";
 import ProductCard from "../ProductCard/ProductCard";
 import { useRef } from "react";
@@ -11,7 +11,6 @@ const MainContainer = styled(Stack)(({ theme }) => ({
 }));
 const Container = styled(Box)(({ theme }) => ({
   position: "relative",
-  // maxWidth: theme.spacing(165),
   paddingLeft: theme.spacing(2),
 }));
 

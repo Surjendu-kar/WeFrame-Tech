@@ -1,6 +1,6 @@
 import { Box, Stack, styled, Typography } from "@mui/material";
 import ProductCard from "../ProductCard/ProductCard";
-import TableIcon from "@/public/Product/SimilarProducts/tableImg.webp";
+import TableIcon from "@/public/SimilarProducts/tableImg.webp";
 
 const MainContainer = styled(Stack)(({ theme }) => ({
   marginTop: theme.spacing(5),

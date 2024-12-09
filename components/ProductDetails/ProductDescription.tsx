@@ -2,7 +2,7 @@ import { Stack, styled, Typography } from "@mui/material";
 
 const ThumbnailsContainer = styled(Stack)(({ theme }) => ({
   display: "flex",
-  width: "47%",
+  width: "49%",
   gap: theme.spacing(1),
 }));
 

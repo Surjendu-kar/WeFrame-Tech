@@ -1,8 +1,7 @@
-"use client";
 import { Box, Stack, styled } from "@mui/material";
 import Image from "next/image";
-import PrinterImg from "@/public/Product/ProductDetails/printer.png";
-import TableIcon from "@/public/Product/SimilarProducts/tableImg.webp";
+import PrinterImg from "@/public/ProductDetails/printer.png";
+import TableIcon from "@/public/SimilarProducts/tableImg.webp";
 
 const ImageContainer = styled(Stack)(() => ({
   flexDirection: "row",
