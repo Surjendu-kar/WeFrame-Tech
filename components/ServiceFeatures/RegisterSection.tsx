@@ -52,11 +52,11 @@ const RegisterButton = styled("button")(({ theme }) => ({
   },
 }));
 
-const InputContainer = styled(Box)({
+const InputContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  gap: "16px",
+  gap: theme.spacing(1.6),
   alignItems: "center",
-});
+}));
 
 const RegisterSection = () => {
   return (

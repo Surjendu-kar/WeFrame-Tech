@@ -13,6 +13,7 @@ const Container = styled(Stack)(({ theme }) => ({
   background: "linear-gradient(180deg, #fff4f991 0%, #ffffff 100%)",
   gap: theme.spacing(5),
   marginTop: theme.spacing(6),
+  maxWidth: "1600px",
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
