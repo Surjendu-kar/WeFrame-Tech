@@ -3,7 +3,7 @@ import Image from "next/image";
 import { InputAdornment } from "@mui/material";
 import Logo from "@/public/weFramelogo.svg";
 import { LeftContainer, SearchIconImage, SearchInput } from "./HeaderStyles";
-import SearchIcon from "@/public/HeaderImages/SearchIcon.svg";
+import SearchIcon from "@/public/HeaderImages/searchIcon.svg";
 
 const LeftSection: React.FC = () => {
   return (

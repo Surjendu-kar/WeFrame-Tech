@@ -1,5 +1,6 @@
 import { Box, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
+import HeartIcon from "../HeartIcon/HeartIcon";
 
 const ProductTitle = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(3),
@@ -19,9 +20,27 @@ const PriceUnit = styled(PriceText)(({ theme }) => ({
   color: theme.palette.grey[200],
 }));
 
+const MeasurementBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: theme.spacing(1),
+}));
+
+const MeasurementContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  gap: theme.spacing(0.1),
+}));
+
 const SpecText = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.6),
   fontFamily: "Geist",
+  color: theme.palette.grey[900],
+}));
+
+const UnitText = styled(Typography)(({ theme }) => ({
+  fontSize: theme.spacing(1.2),
+  color: theme.palette.grey[900],
+  marginBottom: theme.spacing(0.5),
 }));
 
 const RefText = styled(Typography)(({ theme }) => ({
@@ -40,12 +59,13 @@ function ProductInfo() {
       {/* Title and Favorite */}
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <ProductTitle>Cheese – appareil à raclette 1/2 roue</ProductTitle>
-        <Image
+        {/* <Image
           src="/BodyImages/addFav.png"
           alt="Add to favorites"
           width={27}
           height={25}
-        />
+        /> */}
+        <HeartIcon />
       </Box>
 
       {/* Price */}
@@ -65,24 +85,30 @@ function ProductInfo() {
         }}
       >
         <Box sx={{ display: "flex", gap: 2, padding: "20px 0" }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <MeasurementBox>
             <Image
               src="/BodyImages/scaleImg.svg"
               alt="Scale"
               width={24}
               height={24}
             />
-            <SpecText>20cm</SpecText>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <MeasurementContainer>
+              <SpecText>20</SpecText>
+              <UnitText>cm</UnitText>
+            </MeasurementContainer>
+          </MeasurementBox>
+          <MeasurementBox>
             <Image
               src="/BodyImages/circleImg.svg"
               alt="Circle"
               width={24}
               height={24}
             />
-            <SpecText>50cm</SpecText>
-          </Box>
+            <MeasurementContainer>
+              <SpecText>20</SpecText>
+              <UnitText>cm</UnitText>
+            </MeasurementContainer>
+          </MeasurementBox>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <RefText>RÉF : VABGN5</RefText>
