@@ -11,14 +11,6 @@ const LeftContainer = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-const ImgStyle = styled(Image)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    width: "90px",
-    height: "40px",
-    paddingLeft: "20px",
-  },
-}));
-
 const LeftSection: React.FC = () => {
   const isSmallerDevice = useMediaQuery((theme) =>
     theme.breakpoints.down("md")

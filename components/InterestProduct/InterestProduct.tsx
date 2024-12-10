@@ -57,14 +57,6 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-interface Product {
-  image: string;
-  title: string;
-  price: number;
-  width: string;
-  height: string;
-}
-
 function InterestProduct() {
   return (
     <MainContainer>
