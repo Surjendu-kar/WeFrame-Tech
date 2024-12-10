@@ -5,7 +5,7 @@ import TwitterImg from "@/public/Footer/twitter.png";
 import InstaImg from "@/public/Footer/instagram.png";
 import LinkedinImg from "@/public/Footer/linkedin-in.png";
 
-const MainContainer = styled(Typography)(({ theme }) => ({
+const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   marginTop: "auto",
   justifyContent: "space-between",

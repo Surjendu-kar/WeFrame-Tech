@@ -17,6 +17,7 @@ function Home() {
       <Stack sx={{ alignItems: "center" }}>
         {/* Select product */}
         <ProductDetails />
+
         {/* similar products */}
         <SimilarProducts />
 
