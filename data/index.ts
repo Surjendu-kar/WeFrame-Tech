@@ -24,32 +24,32 @@ export const navItems: NavItem[] = [
 export const suggestions = [
   {
     text: "fourchettes",
-    icon: "rotate", // RotateRightIcon
+    icon: "rotate",
   },
   {
     text: "fourchette grande",
-    icon: "search", // SearchIcon
+    icon: "search",
   },
   {
     text: "fourchette Piranha",
-    icon: "search", // SearchIcon
+    icon: "search",
   },
   {
     text: "fourchette",
-    icon: "search", // SearchIcon
+    icon: "search",
   },
   {
     text: "Fourchettes",
     subText: "ART DE LA TABLE > FOURCHETTES",
-    icon: "grid", // GridViewIcon
+    icon: "grid",
   },
   {
     text: "Fourchette",
-    icon: "tag", // LocalOfferIcon
+    icon: "tag",
   },
   {
     text: "Sport addict",
-    icon: "tag", // LocalOfferIcon
+    icon: "tag",
   },
 ];
 

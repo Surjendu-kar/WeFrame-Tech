@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Box, styled } from "@mui/material";
 import Logo from "@/public/weFramelogo.svg";
-import SearchAutocomplete from "./SearchAutocomplete";
+import SearchAutocomplete from "../Search/SearchAutocomplete";
 
 const LeftContainer = styled(Box)(({ theme }) => ({
   display: "flex",
