@@ -17,13 +17,17 @@ const ThumbnailStack = styled(Stack)(({ theme }) => ({
 
 const Container = styled(Box)(({ theme }) => ({
   background: "#F8F6F4",
-  minWidth: theme.spacing(76.1),
-  minHeight: theme.spacing(65.2),
+  width: "45vw",
+  height: "60vh",
   borderRadius: theme.spacing(0.75),
   position: "relative",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+
+  [theme.breakpoints.down("lg")]: {
+    width: "40vw",
+  },
 }));
 
 interface ThumbnailProps {

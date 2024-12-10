@@ -24,12 +24,7 @@ function ProductDetails() {
           <ProductInfo />
         </Box>
         {/* Product description */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        <Box display="flex">
           <ProductDescription />
           <DeliveryQuestions />
         </Box>

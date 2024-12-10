@@ -14,7 +14,9 @@ const Title = styled(Typography)(({ theme }) => ({
 const Description = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.4),
   color: theme.palette.grey[200],
+  fontWeight: 400,
 }));
+
 function ProductDescription() {
   return (
     <ThumbnailsContainer>

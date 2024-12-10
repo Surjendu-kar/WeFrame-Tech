@@ -2,16 +2,22 @@ import TableIcon from "@/public/SimilarProducts/tableImg.webp";
 import { Box, Stack, styled, Typography } from "@mui/material";
 import ProductCard from "../ProductCard/ProductCard";
 import { useRef } from "react";
+import Link from "next/link";
 
 const MainContainer = styled(Stack)(({ theme }) => ({
   marginTop: theme.spacing(10),
   gap: theme.spacing(2),
   background: "#FBF9F899",
-  maxWidth: theme.spacing(160),
+  width: "100%",
+  position: "relative",
+  overflow: "hidden", // Add this to prevent horizontal overflow
 }));
+
 const Container = styled(Box)(({ theme }) => ({
   position: "relative",
   paddingLeft: theme.spacing(2),
+  width: "100%",
+  overflow: "hidden", // Add this to prevent horizontal overflow
 }));
 
 const Heading = styled(Typography)(({ theme }) => ({
@@ -47,11 +53,38 @@ const ScrollButton = styled(Box)(({ theme }) => ({
 const ScrollContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   gap: theme.spacing(2),
-  overflowX: "scroll",
   scrollbarWidth: "none",
-  "&::-webkit-scrollbar": { display: "none" },
+  maxWidth: "100%",
+  overflowX: "auto",
+  overflowY: "hidden",
+  margin: "0 auto",
+  padding: theme.spacing(2, 0),
+  boxSizing: "border-box",
+  WebkitOverflowScrolling: "touch",
+
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
+
+  // Make items shrink when zoomed
   "& > *": {
-    flexShrink: 0,
+    flexShrink: 1,
+    minWidth: theme.spacing(34),
+    maxWidth: theme.spacing(35),
+    width: "calc(33.333% - ${theme.spacing(2)})",
+  },
+
+  // Add a media query for smaller screens
+  [theme.breakpoints.down("md")]: {
+    "& > *": {
+      width: "calc(50% - ${theme.spacing(2)})",
+    },
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    "& > *": {
+      width: "calc(100% - ${theme.spacing(2)})",
+    },
   },
 }));
 
@@ -65,13 +98,6 @@ interface Product {
 
 function SimilarProducts() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const products: Product[] = Array(6).fill({
-    image: TableIcon,
-    title: "Title",
-    price: 0,
-    width: "330px",
-    height: "362px",
-  });
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -83,13 +109,15 @@ function SimilarProducts() {
   return (
     <MainContainer>
       <Box
-        display={"flex"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
         sx={{ padding: "0px 20px" }}
       >
         <Heading>Articles similaires</Heading>
-        <Title>Voir toute la collection</Title>
+        <Link href="#">
+          <Title>Voir toute la collection</Title>
+        </Link>
       </Box>
 
       <Container>
@@ -99,8 +127,13 @@ function SimilarProducts() {
           </svg>
         </ScrollButton>
         <ScrollContainer ref={scrollRef}>
-          {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+          {Array.from({ length: 10 }).map((_, index) => (
+            <ProductCard
+              key={index}
+              image={TableIcon}
+              title={`Title ${index + 1}`}
+              price={Math.floor((index + 1220) / (index + 1))}
+            />
           ))}
         </ScrollContainer>
         <ScrollButton

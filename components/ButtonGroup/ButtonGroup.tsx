@@ -37,6 +37,10 @@ const ButtonStyle = styled("button")(({ theme }) => ({
   borderRadius: "5px",
   color: theme.palette.background.paper,
   textTransform: "uppercase",
+
+  [theme.breakpoints.down("lg")]: {
+    width: "90%",
+  },
 }));
 
 const ButtonGroup = () => {
@@ -47,7 +51,7 @@ const ButtonGroup = () => {
   };
 
   const handleDecrement = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount((prev) => prev - 1);
     }
   };

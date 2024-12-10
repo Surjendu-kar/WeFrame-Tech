@@ -1,11 +1,13 @@
 import { Box, Stack, styled, Typography } from "@mui/material";
 import ProductCard from "../ProductCard/ProductCard";
 import TableIcon from "@/public/SimilarProducts/tableImg.webp";
+import Link from "next/link";
 
 const MainContainer = styled(Stack)(({ theme }) => ({
   marginTop: theme.spacing(5),
   gap: theme.spacing(2),
-  maxWidth: theme.spacing(160),
+  padding: theme.spacing(0, 2),
+  width: "100%",
 }));
 
 const Heading = styled(Typography)(({ theme }) => ({
@@ -25,14 +27,17 @@ const Title = styled(Typography)(({ theme }) => ({
 
 const Container = styled(Box)(() => ({
   position: "relative",
-  // maxWidth: theme.spacing(165),
 }));
 
 const ScrollContainer = styled(Box)(({ theme }) => ({
   display: "flex",
+  flexWrap: "wrap",
+  alignItems: "center",
+  justifyContent: "center",
   gap: theme.spacing(2),
   overflowX: "scroll",
   scrollbarWidth: "none",
+
   "&::-webkit-scrollbar": { display: "none" },
   "& > *": {
     flexShrink: 0,
@@ -48,14 +53,6 @@ interface Product {
 }
 
 function InterestProduct() {
-  const products: Product[] = Array(3).fill({
-    image: TableIcon,
-    title: "Title",
-    price: 0,
-    width: "506px",
-    height: "438px",
-  });
-
   return (
     <MainContainer>
       <Box
@@ -64,13 +61,20 @@ function InterestProduct() {
         alignItems={"center"}
       >
         <Heading>Ces produits pourraient vous intéresser</Heading>
-        <Title>Voir toute la collection</Title>
+        <Link href="#">
+          <Title>Voir toute la collection</Title>
+        </Link>
       </Box>
 
       <Container>
         <ScrollContainer>
-          {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+          {Array.from({ length: 3 }).map((_, index) => (
+            <ProductCard
+              key={index}
+              image={TableIcon}
+              title={`Title ${index + 1}`}
+              price={Math.floor((index + 820) / (index + 1))}
+            />
           ))}
         </ScrollContainer>
       </Container>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Stack, styled } from "@mui/material";
+import { Box, Typography, Stack, styled, useMediaQuery } from "@mui/material";
 import { suggestions } from "@/data";
 import SearchIcon from "@mui/icons-material/Search";
 import RotateRightIcon from "@mui/icons-material/RotateRight";
@@ -25,16 +25,23 @@ const SuggestionItem = styled(Box)(({ theme }) => ({
   },
 }));
 
-const IconContainer = styled(Box)({
+const IconContainer = styled(Box)(({ theme }) => ({
   width: "24px",
   height: "24px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   marginRight: "8px",
-});
+
+  [theme.breakpoints.down("lg")]: {
+    width: "16px",
+    height: "16px",
+  },
+}));
 
 export const SuggestionList = () => {
+  const isSmallDevice = useMediaQuery((theme) => theme.breakpoints.down("lg"));
+
   const getIcon = (iconType: string) => {
     switch (iconType) {
       case "rotate":
@@ -50,16 +57,31 @@ export const SuggestionList = () => {
     }
   };
   return (
-    <Box sx={{ width: "30%" }}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      sx={{ width: isSmallDevice ? "100%" : "30%" }}
+    >
       <SectionTitle>Suggestions</SectionTitle>
-      <Stack>
+      <Stack
+        flex={1}
+        flexDirection={isSmallDevice ? "row" : "column"}
+        flexWrap="wrap"
+      >
         {suggestions.map((item, index) => (
           <SuggestionItem key={index}>
             <IconContainer>{getIcon(item.icon)}</IconContainer>
             <Box sx={{ flex: 1 }}>
-              <Typography sx={{ fontSize: "15px" }}>{item.text}</Typography>
+              <Typography sx={{ fontSize: isSmallDevice ? "10px" : "15px" }}>
+                {item.text}
+              </Typography>
               {item.subText && (
-                <Typography sx={{ fontSize: "10px", color: "#9C9C9C" }}>
+                <Typography
+                  sx={{
+                    fontSize: isSmallDevice ? "8px" : "10px",
+                    color: "#9C9C9C",
+                  }}
+                >
                   {item.subText}
                 </Typography>
               )}

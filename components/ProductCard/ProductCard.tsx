@@ -1,32 +1,28 @@
 import { Box, Stack, styled, Typography } from "@mui/material";
-import Image from "next/image";
 import HeartIcon from "../HeartIcon/HeartIcon";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 
 interface ProductCardProps {
   image: string | StaticImageData;
   title: string;
   price: number;
-  width?: string;
-  height?: string;
 }
 
-const CardContainer = styled(Stack)<{ width?: string }>(
-  ({ width = "330px" }) => ({
-    width,
-    position: "relative",
-    "&:hover": {
-      ".hover-controls": {
-        opacity: 1,
-        transform: "translateY(0)",
-      },
-      ".lot": {
-        opacity: 1,
-      },
+const CardContainer = styled(Stack)(() => ({
+  flex: 1,
+
+  position: "relative",
+  "&:hover": {
+    ".hover-controls": {
+      opacity: 1,
+      transform: "translateY(0)",
     },
-  })
-);
+    ".lot": {
+      opacity: 1,
+    },
+  },
+}));
 
 const HoverControls = styled(Box)(({ theme }) => ({
   position: "absolute",
@@ -204,13 +200,7 @@ const PiecesLabel = styled(Typography)(({ theme }) => ({
   color: "#546A7D",
 }));
 
-const ProductCard = ({
-  image,
-  title,
-  price,
-  width,
-  height,
-}: ProductCardProps) => {
+const ProductCard = ({ image, title, price }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
@@ -224,8 +214,8 @@ const ProductCard = ({
   };
 
   return (
-    <CardContainer width={width}>
-      <ImageBox height={height}>
+    <CardContainer>
+      <ImageBox>
         <HeaderBox>
           <HeartIcon />
           <CategoryLabelContainer>

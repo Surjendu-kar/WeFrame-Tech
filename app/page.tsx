@@ -9,12 +9,12 @@ import ServiceFeatures from "@/components/ServiceFeatures/ServiceFeatures";
 
 function Home() {
   return (
-    <Stack minHeight="100vh">
+    <Stack minHeight="100dvh">
       {/* header */}
       <Header />
 
       {/* main container */}
-      <Stack sx={{ alignItems: "center" }}>
+      <Stack alignItems="center">
         {/* Select product */}
         <ProductDetails />
 

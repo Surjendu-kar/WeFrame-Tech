@@ -5,10 +5,10 @@ import { SuggestionList } from "./SuggestionList";
 import { ProductGrid } from "./ProductGrid";
 import { ViewAllButton } from "./ViewAllButton";
 
-const SearchWrapper = styled(Box)(({ theme }) => ({
+const SearchWrapper = styled(Box)({
   position: "relative",
-  width: theme.spacing(76.8),
-}));
+  flex: 1,
+});
 
 const SuggestionsBox = styled(Box)(({ theme }) => ({
   position: "absolute",
@@ -21,7 +21,15 @@ const SuggestionsBox = styled(Box)(({ theme }) => ({
   marginTop: "12px",
   padding: theme.spacing(1.5),
   zIndex: 1000,
-  minWidth: "1100px",
+  width: theme.spacing(98),
+
+  [theme.breakpoints.down("lg")]: {
+    width: theme.spacing(70),
+  },
+
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+  },
 }));
 
 const SearchAutocomplete = () => {
@@ -51,11 +59,12 @@ const SearchAutocomplete = () => {
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onFocus={() => setIsOpen(true)}
+        isopen={isOpen.toString()}
       />
 
       {isOpen && (
         <SuggestionsBox>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <SuggestionList />
             <Stack flex={1}>
               <ProductGrid />
