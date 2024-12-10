@@ -12,12 +12,15 @@ import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import { navItems } from "@/data";
 
-const HeaderWrapper = styled("header")(() => ({
+const HeaderWrapper = styled("header")(({ theme }) => ({
   position: "sticky",
   top: 0,
   width: "100%",
   backgroundColor: "white",
   zIndex: 1000,
+  [theme.breakpoints.down("sm")]: {
+    position: "relative",
+  },
 }));
 
 const MainContainer = styled(Box)(({ theme }) => ({
@@ -38,16 +41,6 @@ export const NavContainer = styled(Box)(({ theme }) => ({
   borderBottom: "1px solid #EAEDEE",
   [theme.breakpoints.down("sm")]: {
     display: "none",
-  },
-}));
-
-const MobileNavContainer = styled(Box)(({ theme }) => ({
-  display: "none",
-  borderBottom: "1px solid #EAEDEE",
-  padding: theme.spacing(0, 1),
-  [theme.breakpoints.down("sm")]: {
-    display: "flex",
-    justifyContent: "flex-end",
   },
 }));
 
@@ -84,6 +77,20 @@ const StyledMenuItem = styled(MenuItem, {
   textTransform: "uppercase",
   "&:hover": {
     color: theme.palette.primary.main,
+  },
+}));
+
+const MobileNavContainer = styled(Box)(({ theme }) => ({
+  display: "none",
+  borderBottom: "1px solid #EAEDEE",
+  padding: theme.spacing(0, 1),
+  [theme.breakpoints.down("sm")]: {
+    display: "flex",
+    justifyContent: "flex-start",
+    position: "absolute",
+    top: theme.spacing(1),
+    left: theme.spacing(-1),
+    borderBottom: "none",
   },
 }));
 
