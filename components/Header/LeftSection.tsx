@@ -1,23 +1,21 @@
 import React from "react";
 import Image from "next/image";
-import { InputAdornment } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import Logo from "@/public/weFramelogo.svg";
-import { LeftContainer, SearchIconImage, SearchInput } from "./HeaderStyles";
-import SearchIcon from "@/public/HeaderImages/searchIcon.svg";
+import SearchAutocomplete from "./SearchAutocomplete";
+
+const LeftContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {},
+}));
 
 const LeftSection: React.FC = () => {
   return (
     <LeftContainer>
       <Image src={Logo} alt="WeFramelogo" />
-      <SearchInput
-        placeholder="Rechercher un produit"
-        endAdornment={
-          <InputAdornment position="end">
-            <SearchIconImage src={SearchIcon} alt="search icon" />
-          </InputAdornment>
-        }
-        disableUnderline
-      />
+      <SearchAutocomplete />
     </LeftContainer>
   );
 };
