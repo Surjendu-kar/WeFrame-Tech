@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Stack, styled, Collapse, Typography } from "@mui/material";
 
-const SectionContainer = styled(Box)(({ theme }) => ({
+const SectionContainer = styled(Box)(() => ({
   backgroundColor: "#FBF9F899",
 }));
 

@@ -21,8 +21,8 @@ const ThumbnailStack = styled(Stack)(({ theme }) => ({
 
 const Container = styled(Box)(({ theme }) => ({
   background: "#F8F6F4",
-  width: "45vw",
-  height: "60vh",
+  width: theme.spacing(71),
+  height: theme.spacing(65),
   borderRadius: theme.spacing(0.75),
   position: "relative",
   display: "flex",

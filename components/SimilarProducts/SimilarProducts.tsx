@@ -101,14 +101,6 @@ const ScrollContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-interface Product {
-  image: string;
-  title: string;
-  price: number;
-  width: string;
-  height: string;
-}
-
 function SimilarProducts() {
   const scrollRef = useRef<HTMLDivElement>(null);
 

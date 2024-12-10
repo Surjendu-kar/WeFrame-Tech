@@ -65,11 +65,7 @@ export const ProductGrid = () => {
         {products.map((product) => (
           <ProductCard key={product.id}>
             <ProductImage>
-              <Image
-                src={product.image}
-                alt={product.name}
-                style={{ width: "110px", height: "110px" }}
-              />
+              <ImgStyle src={product.image} alt={product.name} />
             </ProductImage>
             <Typography sx={{ color: "#9C9C9C", fontSize: "10px" }}>
               {product.category}

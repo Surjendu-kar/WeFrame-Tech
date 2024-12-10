@@ -112,10 +112,10 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     height: theme.spacing(5.8),
     backgroundColor: theme.palette.background.paper,
     borderRadius: "8px",
-    fontSize: theme.spacing(1.75), // Default font size
+    fontSize: theme.spacing(1.75),
 
     [theme.breakpoints.up("lg")]: {
-      fontSize: theme.spacing(2), // Larger font size for lg screens
+      fontSize: theme.spacing(2),
     },
   },
   "& .MuiOutlinedInput-root": {
@@ -191,13 +191,6 @@ const InputContainer = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
-  },
-}));
-
-const ImgStyle = styled(Image)(({ theme }) => ({
-  [theme.breakpoints.down("sm")]: {
-    width: "350px",
-    height: "200px",
   },
 }));
 
