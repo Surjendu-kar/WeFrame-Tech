@@ -1,4 +1,11 @@
-import { Box, Stack, styled, Typography } from "@mui/material";
+import {
+  Box,
+  Stack,
+  styled,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 import HeartIcon from "../HeartIcon/HeartIcon";
 import { StaticImageData } from "next/image";
@@ -281,6 +288,9 @@ const ProductCard = ({
   height,
 }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
+  const isSmallScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
 
   const handleIncrement = () => {
     setQuantity((prev) => prev + 1);
@@ -304,7 +314,13 @@ const ProductCard = ({
         </HeaderBox>
         <ImageContainer>
           <ImageWrapper>
-            <ImgStyle src={image} alt={title} loading="lazy" />
+            <ImgStyle
+              src={image}
+              alt={title}
+              loading="lazy"
+              quality={isSmallScreen ? 60 : 100}
+              sizes="(max-width: 600px) 100px, 224px"
+            />
           </ImageWrapper>
         </ImageContainer>
         <HoverControls className="hover-controls">
