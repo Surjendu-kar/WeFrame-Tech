@@ -97,7 +97,10 @@ function SimilarProducts() {
         display={"flex"}
         justifyContent={"space-between"}
         alignItems={"center"}
-        sx={{ padding: "0px 20px", flexDirection: { xs: "column", sm: "row" } }}
+        sx={{
+          padding: { xs: "0", sm: "0px 20px" },
+          flexDirection: { xs: "column", sm: "row" },
+        }}
       >
         <Heading>Articles similaires</Heading>
         <Title>Voir toute la collection</Title>
@@ -115,7 +118,7 @@ function SimilarProducts() {
           ))}
         </ScrollContainer>
         <ScrollButton
-          sx={{ right: "10px", left: "auto", transform: "translate(0, -50%)" }}
+          sx={{ right: "0px", left: "auto", transform: "translate(0, -50%)" }}
           onClick={() => scroll("right")}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
