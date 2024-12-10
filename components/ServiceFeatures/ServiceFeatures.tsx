@@ -14,6 +14,10 @@ const Container = styled(Stack)(({ theme }) => ({
   gap: theme.spacing(5),
   marginTop: theme.spacing(6),
   maxWidth: "1600px",
+
+  [theme.breakpoints.down("sm")]: {
+    maxWidth: theme.spacing(40),
+  },
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
@@ -21,15 +25,27 @@ const Title = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[600],
 
   "& span": {
-    color: "#5CD2DD",
+    color: theme.palette.primary.light,
     fontWeight: 700,
     fontSize: theme.spacing(3.5),
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(2.5),
+
+    "& span": {
+      fontSize: theme.spacing(2.5),
+    },
   },
 }));
 
 const Subtitle = styled(Typography)(() => ({
   color: theme.palette.grey[200],
   fontSize: theme.spacing(1.4),
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1),
+  },
 }));
 
 const FeaturesGrid = styled(Box)(({ theme }) => ({
@@ -37,6 +53,10 @@ const FeaturesGrid = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   gap: theme.spacing(10),
   width: "100%",
+
+  [theme.breakpoints.down("sm")]: {
+    gap: theme.spacing(1),
+  },
 }));
 
 const FeatureItem = styled(Stack)(({ theme }) => ({
@@ -52,6 +72,25 @@ const FeatureItem = styled(Stack)(({ theme }) => ({
   ".subtitle": {
     fontSize: theme.spacing(1.4),
     color: theme.palette.grey[200],
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    gap: theme.spacing(0.5),
+
+    ".title": {
+      fontSize: theme.spacing(1.1),
+    },
+
+    ".subtitle": {
+      fontSize: theme.spacing(0.9),
+    },
+  },
+}));
+
+const ImgStyle = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: "30px",
+    height: "40px",
   },
 }));
 
@@ -69,25 +108,25 @@ const ServiceFeatures = () => {
 
       <FeaturesGrid>
         <FeatureItem>
-          <Image src={DeliveryImg} alt="DeliveryImg" />
+          <ImgStyle src={DeliveryImg} alt="DeliveryImg" />
           <Typography className="title">Livraison & Reprise</Typography>
           <Typography className="subtitle">Selon vos besoins</Typography>
         </FeatureItem>
 
         <FeatureItem>
-          <Image src={CleaningImg} alt="CleaningImg" />
+          <ImgStyle src={CleaningImg} alt="CleaningImg" />
           <Typography className="title">Nettoyage</Typography>
           <Typography className="subtitle">Selon vos besoins</Typography>
         </FeatureItem>
 
         <FeatureItem>
-          <Image src={OrderImg} alt="OrderImg" />
+          <ImgStyle src={OrderImg} alt="OrderImg" />
           <Typography className="title">Commande Illimitée</Typography>
           <Typography className="subtitle">Tout est possible</Typography>
         </FeatureItem>
 
         <FeatureItem>
-          <Image src={AmbulanceImg} alt="AmbulanceImg" />
+          <ImgStyle src={AmbulanceImg} alt="AmbulanceImg" />
           <Typography className="title">Transport & Enlèvement</Typography>
           <Typography className="subtitle">On s&apos;occupe de tout</Typography>
         </FeatureItem>

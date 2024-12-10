@@ -8,12 +8,21 @@ const RegisterContainer = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   gap: theme.spacing(2),
   padding: theme.spacing(6, 2),
+  [theme.breakpoints.down("sm")]: {
+    padding: theme.spacing(1),
+    flexDirection: "column",
+    alignItems: "center",
+  },
 }));
 
 const ContentStack = styled(Stack)(({ theme }) => ({
   padding: theme.spacing(3),
   background: "#FFF3F9",
   borderRadius: theme.spacing(3),
+
+  [theme.breakpoints.down("sm")]: {
+    padding: theme.spacing(1),
+  },
 }));
 
 const RegisterText = styled(Typography)(({ theme }) => ({
@@ -24,12 +33,24 @@ const RegisterText = styled(Typography)(({ theme }) => ({
     color: theme.palette.primary.light,
     fontSize: theme.spacing(4.3),
   },
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(2.3),
+    "& span": {
+      fontSize: theme.spacing(2.3),
+    },
+  },
 }));
 
 const Description = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.4),
   color: "#BDA2B0",
   marginBottom: theme.spacing(3),
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
 }));
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -48,6 +69,18 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     },
     "&.Mui-focused fieldset": {
       borderColor: "#F5E1EB",
+    },
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: theme.spacing(16.5),
+    "& .MuiInputBase-root": {
+      height: theme.spacing(4),
+    },
+    "& .MuiInputBase-input": {
+      fontSize: "12px",
+      "&::placeholder": {
+        fontSize: "12px",
+      },
     },
   },
 }));
@@ -74,6 +107,13 @@ const RegisterButton = styled("button")(({ theme }) => ({
       transform: "translateX(5px)",
     },
   },
+  [theme.breakpoints.down("sm")]: {
+    padding: theme.spacing(1),
+    fontSize: "10px",
+    "& .MuiSvgIcon-root": {
+      fontSize: "12px",
+    },
+  },
 }));
 
 const InputContainer = styled(Box)(({ theme }) => ({
@@ -82,10 +122,17 @@ const InputContainer = styled(Box)(({ theme }) => ({
   alignItems: "center",
 }));
 
+const ImgStyle = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: "350px",
+    height: "200px",
+  },
+}));
+
 const RegisterSection = () => {
   return (
     <RegisterContainer>
-      <Image src={Frame} alt="frame img" />
+      <ImgStyle src={Frame} alt="frame img" />
       <ContentStack>
         <RegisterText>
           S&apos;inscrire & économiser <span>10%</span>
