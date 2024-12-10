@@ -265,7 +265,6 @@ const PiecesLabel = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.1),
   padding: theme.spacing(0.6, 0.8),
   color: "#546A7D",
-
   [theme.breakpoints.down("sm")]: {
     fontSize: theme.spacing(0.9),
   },
