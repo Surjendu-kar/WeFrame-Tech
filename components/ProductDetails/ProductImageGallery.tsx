@@ -35,6 +35,7 @@ const Container = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("sm")]: {
     width: "100vw",
+    height: "40vh",
   },
 }));
 
