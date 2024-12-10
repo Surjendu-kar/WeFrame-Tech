@@ -4,19 +4,24 @@ import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import { navItems } from "@/data";
 
-const HeaderWrapper = styled("header")({
+const HeaderWrapper = styled("header")(() => ({
   position: "sticky",
   top: 0,
   width: "100%",
   backgroundColor: "white",
   zIndex: 1000,
-});
+}));
 
 const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   padding: theme.spacing(2, 3, 3, 3),
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    flexWrap: "wrap",
+    padding: theme.spacing(1),
+    justifyContent: "space-around",
+    gap: theme.spacing(1),
+  },
 }));
 
 export const NavContainer = styled(Box)(() => ({

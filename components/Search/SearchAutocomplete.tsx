@@ -8,6 +8,9 @@ import { ViewAllButton } from "./ViewAllButton";
 const SearchWrapper = styled(Box)(({ theme }) => ({
   position: "relative",
   width: theme.spacing(76.8),
+  [theme.breakpoints.down("sm")]: {
+    width: theme.spacing(22),
+  },
 }));
 
 const SuggestionsBox = styled(Box)(({ theme }) => ({
@@ -19,9 +22,16 @@ const SuggestionsBox = styled(Box)(({ theme }) => ({
   borderRadius: "8px",
   boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
   marginTop: "12px",
+
   padding: theme.spacing(1.5),
   zIndex: 1000,
   minWidth: "1100px",
+
+  [theme.breakpoints.down("sm")]: {
+    minWidth: theme.spacing(32),
+    maxWidth: theme.spacing(32),
+    left: -105,
+  },
 }));
 
 const SearchAutocomplete = () => {
@@ -63,7 +73,9 @@ const SearchAutocomplete = () => {
 
       {isOpen && (
         <SuggestionsBox>
-          <Box sx={{ display: "flex" }}>
+          <Box
+            sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" } }}
+          >
             <SuggestionList />
             <Stack flex={1}>
               <ProductGrid />

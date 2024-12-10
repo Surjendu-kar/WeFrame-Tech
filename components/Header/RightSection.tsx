@@ -1,5 +1,11 @@
-import React from "react";
-import { MenuItem, Typography, SelectChangeEvent, Box, styled, Select } from "@mui/material";
+import {
+  MenuItem,
+  Typography,
+  SelectChangeEvent,
+  Box,
+  styled,
+  Select,
+} from "@mui/material";
 import InspirationImg from "@/public/HeaderImages/inspirationImg.svg";
 import FavImg from "@/public/HeaderImages/favImg.svg";
 import BasketImg from "@/public/HeaderImages/basket.svg";
@@ -11,21 +17,28 @@ export const RightContainer = styled(Box)(({ theme }) => ({
   alignItems: "center",
   gap: theme.spacing(2),
 
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    flexWrap: "wrap",
+    gap: theme.spacing(2),
+  },
 }));
 
 export const StyledContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: theme.spacing(1),
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    gap: theme.spacing(0.5),
+  },
 }));
 
 export const Text = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.4),
   color: theme.palette.grey[700],
   textTransform: "capitalize",
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1.2),
+  },
 }));
 
 export const BasketContainer = styled(Box)(({ theme }) => ({
@@ -36,7 +49,16 @@ export const BasketContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1, 1.6),
   borderRadius: theme.spacing(0.6),
   cursor: "pointer",
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    padding: theme.spacing(0.7, 1),
+  },
+}));
+
+const ImgStyle = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: "15px",
+    height: "15px",
+  },
 }));
 
 export const AvatarCircle = styled(Box)(({ theme }) => ({
@@ -44,7 +66,10 @@ export const AvatarCircle = styled(Box)(({ theme }) => ({
   height: theme.spacing(4.4),
   width: theme.spacing(4.4),
   borderRadius: theme.spacing(3),
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    height: theme.spacing(2.5),
+    width: theme.spacing(2.5),
+  },
 }));
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
@@ -114,13 +139,13 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
     <RightContainer>
       {/* inspiration */}
       <StyledContainer>
-        <Image src={InspirationImg} alt="inspiration img" />
+        <ImgStyle src={InspirationImg} alt="inspiration img" />
         <Text>inspiration</Text>
       </StyledContainer>
 
       {/* my fav */}
       <StyledContainer>
-        <Image src={FavImg} alt="fav img" />
+        <ImgStyle src={FavImg} alt="fav img" />
         <Text>Mes favoris</Text>
         <Box
           sx={{
@@ -145,7 +170,7 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
 
       {/* basket */}
       <BasketContainer>
-        <Image src={BasketImg} alt="basket img" />
+        <ImgStyle src={BasketImg} alt="basket img" />
         <Text sx={{ color: "#FFFFFF" }}>Panier</Text>
       </BasketContainer>
 

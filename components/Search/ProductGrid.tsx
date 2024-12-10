@@ -2,18 +2,23 @@ import { Box, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import { products } from "@/data";
 
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontSize: theme.spacing(1.4),
-  color: theme.palette.grey[200],
-  fontWeight: 500,
-  marginBottom: theme.spacing(1),
-}));
-
 const GridContainer = styled(Box)(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
   gap: theme.spacing(2),
   margin: theme.spacing(0.5, 0, 2),
+
+  [theme.breakpoints.down("sm")]: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+}));
+
+const SectionTitle = styled(Typography)(({ theme }) => ({
+  fontSize: theme.spacing(1.4),
+  color: theme.palette.grey[200],
+  fontWeight: 500,
+  marginBottom: theme.spacing(1),
 }));
 
 const ProductCard = styled(Box)(() => ({
@@ -30,6 +35,20 @@ const ProductImage = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+
+  [theme.breakpoints.down("sm")]: {
+    width: "115px",
+    height: "110px",
+  },
+}));
+
+const ImgStyle = styled(Image)(({ theme }) => ({
+  width: "110px",
+  height: "110px",
+  [theme.breakpoints.down("sm")]: {
+    width: "50px",
+    height: "50px",
+  },
 }));
 
 export const ProductGrid = () => (
@@ -39,11 +58,7 @@ export const ProductGrid = () => (
       {products.map((product) => (
         <ProductCard key={product.id}>
           <ProductImage>
-            <Image
-              src={product.image}
-              alt={product.name}
-              style={{ width: "110px", height: "110px" }}
-            />
+            <ImgStyle src={product.image} alt={product.name} />
           </ProductImage>
           <Typography sx={{ color: "#9C9C9C", fontSize: "10px" }}>
             {product.category}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Stack, styled } from "@mui/material";
 import { suggestions } from "@/data";
 import SearchIcon from "@mui/icons-material/Search";
@@ -50,7 +49,7 @@ export const SuggestionList = () => {
     }
   };
   return (
-    <Box sx={{ width: "30%" }}>
+    <Box sx={{ width: { xs: "100%", sm: "30%" } }}>
       <SectionTitle>Suggestions</SectionTitle>
       <Stack>
         {suggestions.map((item, index) => (

@@ -8,13 +8,19 @@ const LeftContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: theme.spacing(1),
-  [theme.breakpoints.down("sm")]: {},
+}));
+
+const ImgStyle = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: "100px",
+    height: "40px",
+  },
 }));
 
 const LeftSection: React.FC = () => {
   return (
     <LeftContainer>
-      <Image src={Logo} alt="WeFramelogo" />
+      <ImgStyle src={Logo} alt="WeFramelogo" />
       <SearchAutocomplete />
     </LeftContainer>
   );
