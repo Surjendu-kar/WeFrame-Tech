@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Box, Stack, styled } from "@mui/material";
 import { SearchInput } from "./SearchInput";
 import { SuggestionList } from "./SuggestionList";
@@ -27,9 +27,26 @@ const SuggestionsBox = styled(Box)(({ theme }) => ({
 const SearchAutocomplete = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <SearchWrapper>
+    <SearchWrapper ref={wrapperRef}>
       <SearchInput
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
