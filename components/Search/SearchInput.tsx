@@ -27,10 +27,10 @@ const StyledInput = styled(Input)(({ theme }) => ({
   },
 }));
 
-const SearchIconImage = styled(Image)(() => ({
+const SearchIconImage = styled(Image)<{ isopen: string }>(({ isopen }) => ({
+  opacity: isopen === "true" ? 1 : 0.5,
   width: "15px",
   height: "15px",
-  opacity: 0.5,
   transition: "all 0.2s ease-in-out",
 
   "input:focus-within ~ .MuiInputAdornment-root &": {
@@ -44,9 +44,15 @@ interface SearchInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus: () => void;
+  isopen: string;
 }
 
-export const SearchInput = ({ value, onChange, onFocus }: SearchInputProps) => {
+export const SearchInput = ({
+  value,
+  onChange,
+  onFocus,
+  isopen,
+}: SearchInputProps) => {
   return (
     <StyledInput
       placeholder="Rechercher un produit"
@@ -55,7 +61,11 @@ export const SearchInput = ({ value, onChange, onFocus }: SearchInputProps) => {
       onFocus={onFocus}
       endAdornment={
         <InputAdornment position="end">
-          <SearchIconImage src={SearchIcon2} alt="search icon" />
+          <SearchIconImage
+            src={SearchIcon2}
+            alt="search icon"
+            isopen={isopen}
+          />
         </InputAdornment>
       }
       disableUnderline

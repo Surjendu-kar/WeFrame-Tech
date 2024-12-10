@@ -1,17 +1,43 @@
-import { Box, Stack, Typography, styled, TextField } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  styled,
+  TextField,
+  Button,
+} from "@mui/material";
 import Image from "next/image";
 import Frame from "@/public/ServiceFeatureImg/Frame.svg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const RegisterContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "center",
   gap: theme.spacing(2),
+  width: "100%",
+
   padding: theme.spacing(6, 2),
   [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1),
     flexDirection: "column",
     alignItems: "center",
+  },
+
+  [theme.breakpoints.down("md")]: {
+    flexWrap: "wrap",
+  },
+}));
+
+const ImageWrapper = styled(Box)(({ theme }) => ({
+  position: "relative",
+  width: "50%",
+  maxWidth: theme.spacing(70.3),
+  minHeight: theme.spacing(30),
+  flexShrink: 0,
+
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    maxWidth: "100%",
   },
 }));
 
@@ -19,9 +45,15 @@ const ContentStack = styled(Stack)(({ theme }) => ({
   padding: theme.spacing(3),
   background: "#FFF3F9",
   borderRadius: theme.spacing(3),
+  width: "50%",
+  flexShrink: 0,
 
   [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1),
+  },
+
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
   },
 }));
 
@@ -29,9 +61,26 @@ const RegisterText = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(4.3),
   color: theme.palette.grey[600],
   marginBottom: theme.spacing(1),
+
   "& span": {
     color: theme.palette.primary.light,
     fontSize: theme.spacing(4.3),
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: theme.spacing(2.5),
+    },
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: theme.spacing(1.5),
+    },
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    fontSize: theme.spacing(2.5),
+  },
+
+  [theme.breakpoints.down("md")]: {
+    fontSize: theme.spacing(1.5),
   },
 
   [theme.breakpoints.down("sm")]: {
@@ -51,6 +100,10 @@ const Description = styled(Typography)(({ theme }) => ({
     fontSize: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
+
+  [theme.breakpoints.down("lg")]: {
+    fontSize: theme.spacing(1.2),
+  },
 }));
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -59,6 +112,11 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     height: theme.spacing(5.8),
     backgroundColor: theme.palette.background.paper,
     borderRadius: "8px",
+    fontSize: theme.spacing(1.75), // Default font size
+
+    [theme.breakpoints.up("lg")]: {
+      fontSize: theme.spacing(2), // Larger font size for lg screens
+    },
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -71,6 +129,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       borderColor: "#F5E1EB",
     },
   },
+
   [theme.breakpoints.down("sm")]: {
     width: theme.spacing(16.5),
     "& .MuiInputBase-root": {
@@ -83,12 +142,16 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       },
     },
   },
+
+  [theme.breakpoints.down("lg")]: {
+    width: "100%",
+  },
 }));
 
-const RegisterButton = styled("button")(({ theme }) => ({
+const RegisterButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   color: theme.palette.background.paper,
-  padding: theme.spacing(1.9, 1.6),
+  padding: theme.spacing(1.6, 1.8),
   borderRadius: "8px",
   textTransform: "uppercase",
   border: "none",
@@ -107,12 +170,17 @@ const RegisterButton = styled("button")(({ theme }) => ({
       transform: "translateX(5px)",
     },
   },
+
   [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1),
     fontSize: "10px",
     "& .MuiSvgIcon-root": {
       fontSize: "12px",
     },
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    fontSize: theme.spacing(1),
   },
 }));
 
@@ -132,7 +200,18 @@ const ImgStyle = styled(Image)(({ theme }) => ({
 const RegisterSection = () => {
   return (
     <RegisterContainer>
-      <ImgStyle src={Frame} alt="frame img" />
+      <ImageWrapper>
+        <Image
+          src={Frame}
+          alt="frame img"
+          fill
+          style={{
+            objectFit: "contain",
+          }}
+          priority
+        />
+      </ImageWrapper>
+
       <ContentStack>
         <RegisterText>
           S&apos;inscrire & économiser <span>10%</span>

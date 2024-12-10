@@ -27,20 +27,36 @@ const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   padding: theme.spacing(2, 3, 3, 3),
+  gap: theme.spacing(10),
+
   [theme.breakpoints.down("sm")]: {
     flexWrap: "wrap",
     padding: theme.spacing(1),
     justifyContent: "space-around",
     gap: theme.spacing(1),
   },
+
+  [theme.breakpoints.down("lg")]: {
+    gap: theme.spacing(5),
+  },
+
+  [theme.breakpoints.down("md")]: {
+    gap: theme.spacing(2),
+  },
 }));
 
 export const NavContainer = styled(Box)(({ theme }) => ({
   display: "flex",
+  flexWrap: "wrap",
   justifyContent: "space-around",
   borderBottom: "1px solid #EAEDEE",
+
   [theme.breakpoints.down("sm")]: {
     display: "none",
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    padding: theme.spacing(0, 2),
   },
 }));
 
@@ -54,9 +70,11 @@ export const NavItem = styled(Typography, {
   transition: "all 0.2s ease",
   position: "relative",
   paddingBottom: theme.spacing(1.5),
+
   "&:hover": {
     color: theme.palette.primary.main,
   },
+
   "&::after": {
     content: '""',
     position: "absolute",
@@ -66,6 +84,10 @@ export const NavItem = styled(Typography, {
     height: "2px",
     backgroundColor: isSelected ? theme.palette.primary.main : "transparent",
     transition: "background-color 0.2s ease",
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    fontSize: theme.spacing(1),
   },
 }));
 

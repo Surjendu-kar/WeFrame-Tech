@@ -35,9 +35,8 @@ function ProductDetails() {
         </Box>
         {/* Product description */}
         <Box
+          display="flex"
           sx={{
-            display: "flex",
-            alignItems: "center",
             flexDirection: { xs: "column", sm: "row" },
           }}
         >

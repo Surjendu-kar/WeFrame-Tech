@@ -1,3 +1,4 @@
+import React from "react";
 import {
   MenuItem,
   Typography,
@@ -5,6 +6,7 @@ import {
   Box,
   styled,
   Select,
+  useMediaQuery,
 } from "@mui/material";
 import InspirationImg from "@/public/HeaderImages/inspirationImg.svg";
 import FavImg from "@/public/HeaderImages/favImg.svg";
@@ -36,8 +38,13 @@ export const Text = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.4),
   color: theme.palette.grey[700],
   textTransform: "capitalize",
+
   [theme.breakpoints.down("sm")]: {
     fontSize: theme.spacing(1.2),
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    fontSize: theme.spacing(1),
   },
 }));
 
@@ -108,6 +115,12 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
   },
 }));
 
+const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    fontSize: theme.spacing(1),
+  },
+}));
+
 export const selectMenuProps = {
   PaperProps: {
     sx: {
@@ -131,6 +144,8 @@ interface RightSectionProps {
 }
 
 const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
+  const isSmallDevice = useMediaQuery((theme) => theme.breakpoints.down("lg"));
+
   const handleLanguageChange = (event: SelectChangeEvent<unknown>) => {
     setLang(event.target.value as string);
   };
@@ -176,7 +191,12 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
 
       {/* language */}
       <StyledContainer sx={{ gap: 2 }}>
-        <AvatarCircle />
+        <AvatarCircle
+          sx={{
+            width: isSmallDevice ? 30 : 40,
+            height: isSmallDevice ? 30 : 40,
+          }}
+        />
         <StyledSelect
           value={lang || "fr"}
           onChange={handleLanguageChange}
@@ -184,8 +204,8 @@ const RightSection: React.FC<RightSectionProps> = ({ lang, setLang }) => {
           IconComponent={KeyboardArrowDownIcon}
           MenuProps={selectMenuProps}
         >
-          <MenuItem value={"fr"}>FR</MenuItem>
-          <MenuItem value={"en"}>EN</MenuItem>
+          <StyledMenuItem value={"fr"}>FR</StyledMenuItem>
+          <StyledMenuItem value={"en"}>EN</StyledMenuItem>
         </StyledSelect>
       </StyledContainer>
     </RightContainer>

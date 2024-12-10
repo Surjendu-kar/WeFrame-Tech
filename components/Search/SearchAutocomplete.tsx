@@ -7,7 +7,8 @@ import { ViewAllButton } from "./ViewAllButton";
 
 const SearchWrapper = styled(Box)(({ theme }) => ({
   position: "relative",
-  width: theme.spacing(76.8),
+  flex: 1,
+
   [theme.breakpoints.down("sm")]: {
     width: theme.spacing(22),
   },
@@ -25,12 +26,20 @@ const SuggestionsBox = styled(Box)(({ theme }) => ({
 
   padding: theme.spacing(1.5),
   zIndex: 1000,
-  minWidth: "1100px",
+  width: theme.spacing(98),
 
   [theme.breakpoints.down("sm")]: {
     minWidth: theme.spacing(32),
     maxWidth: theme.spacing(32),
     left: -105,
+  },
+
+  [theme.breakpoints.down("lg")]: {
+    width: theme.spacing(70),
+  },
+
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
   },
 }));
 
@@ -69,13 +78,12 @@ const SearchAutocomplete = () => {
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         onFocus={handleFocus}
+        isopen={isOpen.toString()}
       />
 
       {isOpen && (
         <SuggestionsBox>
-          <Box
-            sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" } }}
-          >
+          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <SuggestionList />
             <Stack flex={1}>
               <ProductGrid />

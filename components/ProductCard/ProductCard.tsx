@@ -1,42 +1,39 @@
 import {
+  Theme,
   Box,
   Stack,
   styled,
-  Theme,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import Image from "next/image";
 import HeartIcon from "../HeartIcon/HeartIcon";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 
 interface ProductCardProps {
   image: string | StaticImageData;
   title: string;
   price: number;
-  width?: string;
-  height?: string;
 }
 
-const CardContainer = styled(Stack)<{ width?: string }>(
-  ({ width = "330px", theme }) => ({
-    width,
-    position: "relative",
-    "&:hover": {
-      ".hover-controls": {
-        opacity: 1,
-        transform: "translateY(0)",
-      },
-      ".lot": {
-        opacity: 1,
-      },
+const CardContainer = styled(Stack)(({ theme }) => ({
+  flex: 1,
+
+  position: "relative",
+  "&:hover": {
+    ".hover-controls": {
+      opacity: 1,
+      transform: "translateY(0)",
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "180px",
+    ".lot": {
+      opacity: 1,
     },
-  })
-);
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    width: "180px",
+  },
+}));
 
 const HoverControls = styled(Box)(({ theme }) => ({
   position: "absolute",
@@ -279,13 +276,7 @@ const ImgStyle = styled(Image)(({ theme }) => ({
   },
 }));
 
-const ProductCard = ({
-  image,
-  title,
-  price,
-  width,
-  height,
-}: ProductCardProps) => {
+const ProductCard = ({ image, title, price }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const isSmallScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
@@ -302,8 +293,8 @@ const ProductCard = ({
   };
 
   return (
-    <CardContainer width={width}>
-      <ImageBox height={height}>
+    <CardContainer>
+      <ImageBox>
         <HeaderBox>
           <HeartIcon />
           <CategoryLabelContainer>

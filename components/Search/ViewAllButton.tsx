@@ -9,6 +9,12 @@ const Container = styled(Box)(({ theme }) => ({
   "&:hover": {
     color: "#2b2b2b",
   },
+
+  [theme.breakpoints.down("lg")]: {
+    p: {
+      fontSize: theme.spacing(1),
+    },
+  },
 }));
 
 export const ViewAllButton = () => (
