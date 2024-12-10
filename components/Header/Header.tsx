@@ -1,5 +1,13 @@
-import React from "react";
-import { Box, styled, Typography } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  styled,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import { navItems } from "@/data";
@@ -24,10 +32,23 @@ const MainContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const NavContainer = styled(Box)(() => ({
+export const NavContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-around",
   borderBottom: "1px solid #EAEDEE",
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
+  },
+}));
+
+const MobileNavContainer = styled(Box)(({ theme }) => ({
+  display: "none",
+  borderBottom: "1px solid #EAEDEE",
+  padding: theme.spacing(0, 1),
+  [theme.breakpoints.down("sm")]: {
+    display: "flex",
+    justifyContent: "flex-end",
+  },
 }));
 
 export const NavItem = styled(Typography, {
@@ -55,9 +76,34 @@ export const NavItem = styled(Typography, {
   },
 }));
 
+const StyledMenuItem = styled(MenuItem, {
+  shouldForwardProp: (prop) => prop !== "isSelected",
+})<{ isSelected?: boolean }>(({ theme, isSelected }) => ({
+  fontSize: theme.spacing(1.4),
+  color: isSelected ? theme.palette.primary.main : theme.palette.grey[500],
+  textTransform: "uppercase",
+  "&:hover": {
+    color: theme.palette.primary.main,
+  },
+}));
+
 const Header = () => {
-  const [lang, setLang] = React.useState<string>("");
-  const [selectedNav, setSelectedNav] = React.useState(1);
+  const [lang, setLang] = useState<string>("");
+  const [selectedNav, setSelectedNav] = useState(1);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleNavItemClick = (id: number) => {
+    setSelectedNav(id);
+    handleMenuClose();
+  };
 
   return (
     <HeaderWrapper>
@@ -65,6 +111,8 @@ const Header = () => {
         <LeftSection />
         <RightSection lang={lang} setLang={setLang} />
       </MainContainer>
+
+      {/* Desktop Navigation */}
       <NavContainer>
         {navItems.map((item) => (
           <NavItem
@@ -76,6 +124,34 @@ const Header = () => {
           </NavItem>
         ))}
       </NavContainer>
+
+      {/* Mobile Navigation */}
+      <MobileNavContainer>
+        <IconButton onClick={handleMenuOpen} sx={{ color: "grey.500" }}>
+          <MenuIcon />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+          PaperProps={{
+            sx: {
+              mt: 1,
+              width: 200,
+            },
+          }}
+        >
+          {navItems.map((item) => (
+            <StyledMenuItem
+              key={item.id}
+              isSelected={selectedNav === item.id}
+              onClick={() => handleNavItemClick(item.id)}
+            >
+              {item.name}
+            </StyledMenuItem>
+          ))}
+        </Menu>
+      </MobileNavContainer>
     </HeaderWrapper>
   );
 };

@@ -6,6 +6,10 @@ const MainContainer = styled(Stack)(({ theme }) => ({
   marginTop: theme.spacing(5),
   gap: theme.spacing(2),
   maxWidth: theme.spacing(160),
+
+  [theme.breakpoints.down("sm")]: {
+    maxWidth: theme.spacing(40),
+  },
 }));
 
 const Heading = styled(Typography)(({ theme }) => ({
@@ -13,6 +17,10 @@ const Heading = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(3.5),
   textTransform: "capitalize",
   color: theme.palette.grey[600],
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(2),
+  },
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
@@ -21,6 +29,10 @@ const Title = styled(Typography)(({ theme }) => ({
   color: theme.palette.grey[600],
   borderBottom: `1px solid ${theme.palette.grey[600]}`,
   textTransform: "uppercase",
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1),
+  },
 }));
 
 const Container = styled(Box)(() => ({
@@ -62,6 +74,7 @@ function InterestProduct() {
         display={"flex"}
         justifyContent={"space-between"}
         alignItems={"center"}
+        sx={{ flexDirection: { xs: "column", sm: "row" } }}
       >
         <Heading>Ces produits pourraient vous intéresser</Heading>
         <Title>Voir toute la collection</Title>

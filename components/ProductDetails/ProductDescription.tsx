@@ -4,6 +4,9 @@ const ThumbnailsContainer = styled(Stack)(({ theme }) => ({
   display: "flex",
   width: "49%",
   gap: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
 }));
 
 const Title = styled(Typography)(({ theme }) => ({

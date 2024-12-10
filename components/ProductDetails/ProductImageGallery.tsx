@@ -3,8 +3,12 @@ import Image from "next/image";
 import PrinterImg from "@/public/ProductDetails/printer.png";
 import TableIcon from "@/public/SimilarProducts/tableImg.webp";
 
-const ImageContainer = styled(Stack)(() => ({
+const ImageContainer = styled(Stack)(({ theme }) => ({
   flexDirection: "row",
+  [theme.breakpoints.down("sm")]: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
 }));
 
 const ThumbnailStack = styled(Stack)(({ theme }) => ({
@@ -24,6 +28,11 @@ const Container = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+
+  [theme.breakpoints.down("sm")]: {
+    minWidth: theme.spacing(10),
+    minHeight: theme.spacing(10),
+  },
 }));
 
 interface ThumbnailProps {
@@ -42,6 +51,16 @@ const Thumbnail = styled(Box, {
   alignItems: "center",
   justifyContent: "center",
   opacity: isFirst ? 1 : 0.75,
+
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
+  },
+}));
+
+const ImgStyle = styled(Image)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    width: theme.spacing(25),
+  },
 }));
 
 function ProductImageGallery() {
@@ -63,7 +82,7 @@ function ProductImageGallery() {
             </Thumbnail>
           ))}
         </ThumbnailStack>
-        <Image
+        <ImgStyle
           src={PrinterImg}
           alt="Raclette cheese machine"
           style={{

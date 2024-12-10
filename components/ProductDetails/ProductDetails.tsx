@@ -9,6 +9,10 @@ const ProductContainer = styled(Stack)(({ theme }) => ({
   flexGrow: 1,
   maxWidth: theme.spacing(160),
   padding: theme.spacing(0, 2),
+
+  [theme.breakpoints.down("sm")]: {
+    maxWidth: theme.spacing(40),
+  },
 }));
 
 function ProductDetails() {
@@ -19,7 +23,13 @@ function ProductDetails() {
 
       <Stack gap={4}>
         {/* Product Layout Container */}
-        <Box sx={{ display: "flex", gap: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            flexDirection: { xs: "column", sm: "row" },
+          }}
+        >
           <ProductImageGallery />
           <ProductInfo />
         </Box>
@@ -28,6 +38,7 @@ function ProductDetails() {
           sx={{
             display: "flex",
             alignItems: "center",
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <ProductDescription />

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, styled } from "@mui/material";
 
-const CounterBox = styled(Box)(() => ({
+const CounterBox = styled(Box)(({ theme }) => ({
   width: "153px",
   height: "49px",
   border: "1px solid #EAEDEE",
@@ -10,6 +10,12 @@ const CounterBox = styled(Box)(() => ({
   alignItems: "center",
   justifyContent: "space-between",
   padding: "0 16px",
+
+  [theme.breakpoints.down("sm")]: {
+    width: "103px",
+    height: "40px",
+    marginTop: theme.spacing(1),
+  },
 }));
 
 const CounterButton = styled("button")(({ theme }) => ({
@@ -37,6 +43,12 @@ const ButtonStyle = styled("button")(({ theme }) => ({
   borderRadius: "5px",
   color: theme.palette.background.paper,
   textTransform: "uppercase",
+
+  [theme.breakpoints.down("sm")]: {
+    width: "200px",
+    height: "40px",
+    marginTop: theme.spacing(1),
+  },
 }));
 
 const ButtonGroup = () => {

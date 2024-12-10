@@ -41,7 +41,12 @@ const ExpandableSection = ({ title }: ExpandableSectionProps) => {
 
 const DeliveryQuestions = () => {
   return (
-    <Stack width={"50%"}>
+    <Stack
+      sx={{
+        width: { xs: "100%", sm: "50%" },
+        marginTop: { xs: "20px", sm: "0" },
+      }}
+    >
       <ExpandableSection title="LIVRAISONS" />
       <ExpandableSection title="QUESTIONS" />
     </Stack>

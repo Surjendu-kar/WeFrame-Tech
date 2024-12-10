@@ -13,7 +13,7 @@ interface ProductCardProps {
 }
 
 const CardContainer = styled(Stack)<{ width?: string }>(
-  ({ width = "330px" }) => ({
+  ({ width = "330px", theme }) => ({
     width,
     position: "relative",
     "&:hover": {
@@ -24,6 +24,9 @@ const CardContainer = styled(Stack)<{ width?: string }>(
       ".lot": {
         opacity: 1,
       },
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "180px",
     },
   })
 );
@@ -42,6 +45,10 @@ const HoverControls = styled(Box)(({ theme }) => ({
   alignItems: "center",
   gap: theme.spacing(1),
   borderRadius: "5px",
+
+  [theme.breakpoints.down("sm")]: {
+    margin: "5px",
+  },
 }));
 
 const QuantityContainer = styled(Box)(() => ({
@@ -60,12 +67,21 @@ const QuantityControl = styled(Box)(({ theme }) => ({
   flex: 1,
   position: "relative",
   height: "40px",
+
+  [theme.breakpoints.down("sm")]: {
+    padding: theme.spacing(0.5),
+    height: "25px",
+  },
 }));
 
-const QuantityLabel = styled(Typography)(() => ({
+const QuantityLabel = styled(Typography)(({ theme }) => ({
   fontSize: "12px",
   color: "#000",
   flex: "0 0 auto",
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "10px",
+  },
 }));
 
 const QuantityButton = styled("button")(({ theme }) => ({
@@ -92,15 +108,29 @@ const QuantityButton = styled("button")(({ theme }) => ({
   "&:hover": {
     color: "#000",
   },
+
+  [theme.breakpoints.down("sm")]: {
+    "&.left": {
+      left: "1px",
+    },
+    "&.right": {
+      right: "1px",
+    },
+    fontSize: "14px",
+  },
 }));
 
-const QuantityValue = styled(Typography)(() => ({
+const QuantityValue = styled(Typography)(({ theme }) => ({
   position: "absolute",
   left: "50%",
   top: "50%",
   transform: "translate(-50%, -50%)",
   fontSize: "14px",
   color: "#000",
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "10px",
+  },
 }));
 
 const AddButton = styled("button")(({ theme }) => ({
@@ -117,6 +147,13 @@ const AddButton = styled("button")(({ theme }) => ({
   "&:hover": {
     backgroundColor: "#FF1F7D",
   },
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "10px",
+    padding: theme.spacing(0.5, 1),
+    height: "25px",
+    minWidth: "60px",
+  },
 }));
 
 const ImageBox = styled(Stack)<{ height?: string }>(
@@ -124,6 +161,11 @@ const ImageBox = styled(Stack)<{ height?: string }>(
     backgroundColor: "#F9F7F5",
     padding: theme.spacing(2, 1, 0.8),
     height,
+
+    [theme.breakpoints.down("sm")]: {
+      height: "180px",
+      padding: theme.spacing(1),
+    },
   })
 );
 
@@ -150,6 +192,10 @@ const CategoryLabel = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1),
   textTransform: "uppercase",
   fontWeight: 500,
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(0.7),
+  },
 }));
 
 const ImageContainer = styled(Stack)(() => ({
@@ -175,10 +221,16 @@ const Title = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(2.4),
   textTransform: "capitalize",
   color: theme.palette.grey[600],
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1.5),
+  },
 }));
 
 const Price = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(2.4),
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1.5),
+  },
 }));
 
 const PriceBox = styled(Box)(() => ({
@@ -195,6 +247,10 @@ const ReferenceText = styled(Typography)(({ theme }) => ({
     fontSize: theme.spacing(1),
     color: "#9C9C9C",
   },
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(1),
+  },
 }));
 
 const PiecesLabel = styled(Typography)(({ theme }) => ({
@@ -202,6 +258,19 @@ const PiecesLabel = styled(Typography)(({ theme }) => ({
   fontSize: theme.spacing(1.1),
   padding: theme.spacing(0.6, 0.8),
   color: "#546A7D",
+
+  [theme.breakpoints.down("sm")]: {
+    fontSize: theme.spacing(0.9),
+  },
+}));
+
+const ImgStyle = styled(Image)(({ theme }) => ({
+  width: "224px",
+  height: "224px",
+  [theme.breakpoints.down("sm")]: {
+    width: "100px",
+    height: "100px",
+  },
 }));
 
 const ProductCard = ({
@@ -235,15 +304,7 @@ const ProductCard = ({
         </HeaderBox>
         <ImageContainer>
           <ImageWrapper>
-            <Image
-              src={image}
-              alt={title}
-              style={{
-                width: "224px",
-                height: "224px",
-              }}
-              loading="lazy"
-            />
+            <ImgStyle src={image} alt={title} loading="lazy" />
           </ImageWrapper>
         </ImageContainer>
         <HoverControls className="hover-controls">
