@@ -29,13 +29,12 @@ const Container = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
 
-  [theme.breakpoints.down("sm")]: {
-    minWidth: theme.spacing(10),
-    minHeight: theme.spacing(10),
-  },
-
   [theme.breakpoints.down("lg")]: {
     width: "40vw",
+  },
+
+  [theme.breakpoints.down("sm")]: {
+    width: "100vw",
   },
 }));
 

@@ -7,6 +7,11 @@ import Image from "next/image";
 import theme from "@/theme";
 import RegisterSection from "./RegisterSection";
 
+interface DividerProps {
+  right?: number;
+  width?: number;
+}
+
 const Container = styled(Stack)(({ theme }) => ({
   width: "100%",
   padding: theme.spacing(6, 0),
@@ -63,6 +68,7 @@ const FeatureItem = styled(Stack)(({ theme }) => ({
   alignItems: "center",
   textAlign: "center",
   gap: theme.spacing(1),
+  position: "relative",
 
   ".title": {
     fontSize: theme.spacing(2),
@@ -86,6 +92,22 @@ const FeatureItem = styled(Stack)(({ theme }) => ({
     },
   },
 }));
+
+const Divider = styled(Stack)<DividerProps>(
+  ({ theme, right = -10, width = 12.8 }) => ({
+    position: "absolute",
+    width: theme.spacing(width),
+    height: theme.spacing(0.05),
+    background: theme.palette.grey[200],
+    right: theme.spacing(right),
+    top: "20%",
+    transform: "translateY(-20%)",
+
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  })
+);
 
 const ImgStyle = styled(Image)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -111,18 +133,21 @@ const ServiceFeatures = () => {
           <ImgStyle src={DeliveryImg} alt="DeliveryImg" />
           <Typography className="title">Livraison & Reprise</Typography>
           <Typography className="subtitle">Selon vos besoins</Typography>
+          <Divider />
         </FeatureItem>
 
         <FeatureItem>
           <ImgStyle src={CleaningImg} alt="CleaningImg" />
           <Typography className="title">Nettoyage</Typography>
           <Typography className="subtitle">Selon vos besoins</Typography>
+          <Divider right={-12} />
         </FeatureItem>
 
         <FeatureItem>
           <ImgStyle src={OrderImg} alt="OrderImg" />
           <Typography className="title">Commande Illimitée</Typography>
           <Typography className="subtitle">Tout est possible</Typography>
+          <Divider width={16.6} right={-13} />
         </FeatureItem>
 
         <FeatureItem>

@@ -188,6 +188,10 @@ const InputContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   gap: theme.spacing(1.6),
   alignItems: "center",
+
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+  },
 }));
 
 const ImgStyle = styled(Image)(({ theme }) => ({

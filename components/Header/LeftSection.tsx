@@ -26,7 +26,6 @@ const LeftSection: React.FC = () => {
 
   return (
     <LeftContainer>
-      <ImgStyle src={Logo} alt="WeFramelogo" />
       <Image
         src={Logo}
         alt="WeFramelogo"
