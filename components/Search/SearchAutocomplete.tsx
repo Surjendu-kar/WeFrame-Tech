@@ -36,6 +36,7 @@ const SearchAutocomplete = () => {
         !wrapperRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
+        setSearchValue("");
       }
     };
 
@@ -45,12 +46,19 @@ const SearchAutocomplete = () => {
     };
   }, []);
 
+  const handleFocus = () => {
+    setIsOpen(true);
+    if (!searchValue) {
+      setSearchValue("Fourchette");
+    }
+  };
+
   return (
     <SearchWrapper ref={wrapperRef}>
       <SearchInput
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        onFocus={() => setIsOpen(true)}
+        onFocus={handleFocus}
       />
 
       {isOpen && (
